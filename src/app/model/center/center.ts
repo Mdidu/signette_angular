@@ -1,4 +1,4 @@
-import {Adresse} from "./adresse";
+import {Adresse} from "../adresse/adresse";
 
 export class Center {
   centerid?: number;

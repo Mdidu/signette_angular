@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
-import {Center} from "../model/center";
+import {Center} from "../model/center/center";
 
 const baseUrl = 'http://localhost:8888/center';
 

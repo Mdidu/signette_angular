@@ -20,7 +20,8 @@ import {UpdateCenterComponent} from './component/center/update-center/update-cen
     AppComponent,
     ClientComponent,
     AddClientComponent,
-    UpdateClientComponent, CenterComponent,
+    UpdateClientComponent,
+    CenterComponent,
     AddCenterComponent,
     UpdateCenterComponent
   ],
