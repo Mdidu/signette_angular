@@ -6,7 +6,9 @@
     <th scope="col">clientWording</th>
     <th scope="col">clientMail</th>
     <th scope="col">clientPhone</th>
-    <th scope="col">clientAdresse</th>
+    <th scope="col">clientAddress</th>
+    <th scope="col">Supprimer</th>
+    <th scope="col">Modifier</th>
   </tr>
   </thead>
   <tbody>
@@ -15,15 +17,12 @@
     <td>{{client.clientWording}}</td>
     <td>{{client.clientMail}}</td>
     <td>{{client.clientPhone}}</td>
-    <td>{{client.clientAdresse}}</td>
+    <td>{{client.clientAddress}}</td>
     <td>
       <button (click)="onRemoveClient(client.clientId)" class="btn btn-primary">Supprimer</button>
     </td>
     <td>
       <a (click)="updateClient(client.clientId)" class="btn btn-primary">Modifier</a>
-    </td>
-    <td>
-      <a (click)="detailClient(client.clientId)" class="btn btn-primary">Details client</a>
     </td>
   </tr>
   </tbody>

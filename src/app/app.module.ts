@@ -7,11 +7,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from './app-routing.module';
+import {AddClientComponent} from './component/client/add-client/add-client.component';
+import {UpdateClientComponent} from './component/client/update-client/update-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientComponent
+    ClientComponent,
+    AddClientComponent,
+    UpdateClientComponent
   ],
   imports: [
     BrowserModule,

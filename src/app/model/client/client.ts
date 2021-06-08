@@ -1,9 +1,9 @@
-import {Adresse} from "./adresse/adresse";
+import {Adresse} from "../adresse/adresse";
 
 export class Client {
   clientId?: number;
   clientWording?: string;
   clientMail?: string;
   clientPhone?: string;
-  clientAdresse?: Adresse;
+  clientAddress?: Adresse;
 }
