@@ -2,28 +2,36 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {CenterComponent} from './component/center/center.component';
-import {HttpClientModule} from "@angular/common/http";
-import {AppRoutingModule} from "./app-routing.module";
+import {ClientComponent} from './component/client/client.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
+import {AppRoutingModule} from './app-routing.module';
+import {AddClientComponent} from './component/client/add-client/add-client.component';
+import {UpdateClientComponent} from './component/client/update-client/update-client.component';
+import {CenterComponent} from './component/center/center.component';
 import {AddCenterComponent} from './component/center/add-center/add-center.component';
 import {UpdateCenterComponent} from './component/center/update-center/update-center.component';
-import {RouterModule} from "@angular/router";
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CenterComponent,
+    ClientComponent,
+    AddClientComponent,
+    UpdateClientComponent, CenterComponent,
     AddCenterComponent,
     UpdateCenterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
