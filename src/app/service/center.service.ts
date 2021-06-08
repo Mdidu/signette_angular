@@ -36,8 +36,8 @@ export class CenterService {
     );
   }
 
-  public update(idcenter: number, data: any) {
-    return this.http.put(baseUrl + '/update/' + idcenter, data).subscribe(
+  public update(id: number, data: any) {
+    return this.http.put(baseUrl + '/update/' + id, data).subscribe(
       () => {
         this.router.navigate(['center/list']);
       }
