@@ -9,13 +9,20 @@ import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from './app-routing.module';
 import {AddClientComponent} from './component/client/add-client/add-client.component';
 import {UpdateClientComponent} from './component/client/update-client/update-client.component';
+import {CenterComponent} from './component/center/center.component';
+import {AddCenterComponent} from './component/center/add-center/add-center.component';
+import {UpdateCenterComponent} from './component/center/update-center/update-center.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientComponent,
     AddClientComponent,
-    UpdateClientComponent
+    UpdateClientComponent, CenterComponent,
+    AddCenterComponent,
+    UpdateCenterComponent
   ],
   imports: [
     BrowserModule,
