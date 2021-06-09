@@ -7,7 +7,7 @@
           <form class="form-signing" [formGroup]="addCenterForm" (ngSubmit)="onSubmit()">
 
             <label for="centerPicture">Image :</label>
-            <app-file-upload></app-file-upload>
+            <input type="text" formControlName="centerPicture" class="form-control col-sm-10" id="centerPicture" placeholder="Entrez l'Url de l'image" />
 
             <label for="centerName">Nom  :</label>
             <input type="text" formControlName="centerName" class="form-control col-sm-10" id="centerName" placeholder="Entrez Nom du Centre" />
