@@ -12,6 +12,10 @@ import {UpdateClientComponent} from './component/client/update-client/update-cli
 import {CenterComponent} from './component/center/center.component';
 import {AddCenterComponent} from './component/center/add-center/add-center.component';
 import {UpdateCenterComponent} from './component/center/update-center/update-center.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+import { HomeComponent } from './component/home/home.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 
 
@@ -23,7 +27,11 @@ import {UpdateCenterComponent} from './component/center/update-center/update-cen
     UpdateClientComponent,
     CenterComponent,
     AddCenterComponent,
-    UpdateCenterComponent
+    UpdateCenterComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
