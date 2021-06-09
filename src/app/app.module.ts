@@ -12,6 +12,7 @@ import {UpdateClientComponent} from './component/client/update-client/update-cli
 import {CenterComponent} from './component/center/center.component';
 import {AddCenterComponent} from './component/center/add-center/add-center.component';
 import {UpdateCenterComponent} from './component/center/update-center/update-center.component';
+import { FileUploadComponent } from './component/file-upload/file-upload.component';
 
 
 
@@ -23,7 +24,8 @@ import {UpdateCenterComponent} from './component/center/update-center/update-cen
     UpdateClientComponent,
     CenterComponent,
     AddCenterComponent,
-    UpdateCenterComponent
+    UpdateCenterComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
