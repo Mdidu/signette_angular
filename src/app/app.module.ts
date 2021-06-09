@@ -16,6 +16,7 @@ import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { HomeComponent } from './component/home/home.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import {authInterceptorProviders} from "../helpers/auth.interceptor";
 
 
 
@@ -42,7 +43,7 @@ import { ProfileComponent } from './component/profile/profile.component';
     AppRoutingModule,
 
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {
