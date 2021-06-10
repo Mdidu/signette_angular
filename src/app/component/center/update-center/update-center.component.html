@@ -6,8 +6,8 @@
           <h5 class="card-title text-center">Modifiez le centre</h5>
           <form class="form-signing" *ngif="updateCenterForm" [formGroup]="updateCenterForm" (ngSubmit)="onSubmit()">
 
-            <label for="centerPicture">Image :</label>
-            <input type="text" formControlName="centerPicture" class="form-control col-sm-10" id="centerPicture" placeholder="Telechargez image" />
+            <label for="centerPicture">Image URL:</label>
+            <input type="text" formControlName="centerPicture" class="form-control col-sm-10" id="centerPicture" placeholder="Url de l'image" />
 
 
             <label for="centerName">Nom  :</label>
