@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Center} from "../model/center/center";
+import {Trip} from "../model/trip/trip";
 
 const baseUrl = 'http://localhost:8888/trip';
 
@@ -20,7 +21,7 @@ export class TripService {
       });
   }
 
-  public findAll(): Observable<Center[]> {
+  public findAll(): Observable<Trip[]> {
     return this.http.get<any>(baseUrl + '/read')
       .map((res: any) => {
         return res;

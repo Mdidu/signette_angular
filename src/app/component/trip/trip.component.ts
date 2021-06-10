@@ -3,6 +3,7 @@ import {FormBuilder} from "@angular/forms";
 import {CenterService} from "../../service/center.service";
 import {Router} from "@angular/router";
 import {TripService} from "../../service/trip.service";
+import {Trip} from "../../model/trip/trip";
 
 @Component({
   selector: 'app-trip',
@@ -11,7 +12,7 @@ import {TripService} from "../../service/trip.service";
 })
 export class TripComponent implements OnInit {
 
-  trips: any;
+  trips: Trip[];
 
   constructor(private formBuilder: FormBuilder, public tripService: TripService,  private router: Router) {
     this.displayTrip();
@@ -22,7 +23,7 @@ export class TripComponent implements OnInit {
   }
 
   displayTrip() {
-    this.trips = this.tripService.findAll().subscribe(
+    this.tripService.findAll().subscribe(
       (trips) => {
         this.trips = trips;
       },
@@ -40,10 +41,10 @@ export class TripComponent implements OnInit {
         this.displayTrip();
       }, 1000);
   }
-  updateCenter(id: number){
+  updateTrip(id: number){
     this.router.navigate(['/trip/update/', id]);
   }
-  detailCenter(id: number){
+  detailTrip(id: number){
     this.router.navigate(['/trip/', id]);
   }
 }
