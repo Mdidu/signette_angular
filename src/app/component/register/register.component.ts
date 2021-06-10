@@ -4,7 +4,6 @@ import {User} from "../../model/user/user";
 import {UserService} from "../../service/user.service";
 import {RoleService} from "../../service/role.service";
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
