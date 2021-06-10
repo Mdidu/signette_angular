@@ -12,6 +12,7 @@ import {UpdateClientComponent} from './component/client/update-client/update-cli
 import {CenterComponent} from './component/center/center.component';
 import {AddCenterComponent} from './component/center/add-center/add-center.component';
 import {UpdateCenterComponent} from './component/center/update-center/update-center.component';
+import { FileUploadComponent } from './component/file-upload/file-upload.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { HomeComponent } from './component/home/home.component';
@@ -29,10 +30,12 @@ import {authInterceptorProviders} from "../helpers/auth.interceptor";
     CenterComponent,
     AddCenterComponent,
     UpdateCenterComponent,
+    FileUploadComponent
     LoginComponent,
     RegisterComponent,
     HomeComponent,
     ProfileComponent
+
   ],
   imports: [
     BrowserModule,
