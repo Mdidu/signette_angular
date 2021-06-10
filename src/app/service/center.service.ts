@@ -15,14 +15,14 @@ export class CenterService {
   constructor(private http: HttpClient, private router: Router) { }
 
   public findById(id: string | null) {
-    return this.http.get<any>(baseUrl + '/list/' + id)
+    return this.http.get<any>(baseUrl + '/read/' + id)
       .map((res: any) => {
         return res;
       });
   }
 
   public findAll(): Observable<Center[]> {
-    return this.http.get<any>(baseUrl + '/list')
+    return this.http.get<any>(baseUrl + '/read')
       .map((res: any) => {
         return res;
       });
@@ -31,7 +31,7 @@ export class CenterService {
   public add(data: any) {
     return this.http.post(baseUrl + '/add', data).subscribe(
       () => {
-        this.router.navigate(['center/list']);
+        this.router.navigate(['center/read']);
       }
     );
   }
@@ -39,7 +39,7 @@ export class CenterService {
   public update(id: number, data: any) {
     return this.http.put(baseUrl + '/update/' + id, data).subscribe(
       () => {
-        this.router.navigate(['center/list']);
+        this.router.navigate(['center/read']);
       }
     );
   }

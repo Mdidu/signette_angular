@@ -16,14 +16,14 @@ export class ClientService {
   }
 
   public findById(id: string | null) {
-    return this.http.get<any>(baseUrl + '/list/' + id)
+    return this.http.get<any>(baseUrl + '/read/' + id)
       .map((res: any) => {
         return res;
       });
   }
 
   public findAll(): Observable<Client[]> {
-    return this.http.get<any>(baseUrl + '/list')
+    return this.http.get<any>(baseUrl + '/read')
       .map((res: any) => {
         return res;
       });
@@ -32,7 +32,7 @@ export class ClientService {
   public add(data: any) {
     return this.http.post(baseUrl + '/add', data).subscribe(
       () => {
-        this.router.navigate(['client/list']);
+        this.router.navigate(['client/read']);
       }
     );
   }
@@ -40,7 +40,7 @@ export class ClientService {
   public update(clientId: number, data: any) {
     return this.http.put(baseUrl + '/update/' + clientId, data).subscribe(
       () => {
-        this.router.navigate(['client/list']);
+        this.router.navigate(['client/read']);
       }
     );
   }
