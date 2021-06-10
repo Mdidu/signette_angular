@@ -19,6 +19,7 @@ import { HomeComponent } from './component/home/home.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import {authInterceptorProviders} from "../helpers/auth.interceptor";
 import { UserComponent } from './component/user/user.component';
+import { UpdateUserComponent } from './component/user/update-user/update-user.component';
 
 
 
@@ -31,14 +32,14 @@ import { UserComponent } from './component/user/user.component';
     CenterComponent,
     AddCenterComponent,
     UpdateCenterComponent,
-    FileUploadComponent
+    FileUploadComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    UsGestionUser
+    UsGestionUser,
     ProfileComponent,
-    UserComponent
-    main
+    UserComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
