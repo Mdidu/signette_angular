@@ -1,0 +1,31 @@
+<h1 class="text-center">Centre de Vacances</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">image</th>
+    <th scope="col">nom</th>
+    <th scope="col">email</th>
+    <th scope="col">telephone</th>
+    <th scope="col">commentaire</th>
+    <th scope="col">Adresse</th>
+    <th scope="col">Supprimer</th>
+    <th scope="col">Modifier</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let center of centers">
+    <td><img src="{{center.centerPicture}}" alt=""></td>
+    <td>{{center.centerName}}</td>
+    <td>{{center.centerMail}}</td>
+    <td>{{center.centerPhone}}</td>
+    <td>{{center.centerComment}}</td>
+    <td>{{center.centerAdresse}}</td>
+    <td>
+      <button (click)="onRemoveCenter(center.centerid)" class="btn btn-primary">Supprimer</button>
+    </td>
+    <td>
+      <a (click)="updateCenter(center.centerid)" class="btn btn-primary">Modifier</a>
+    </td>
+  </tr>
+  </tbody>
+</table>

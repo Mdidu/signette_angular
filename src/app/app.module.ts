@@ -13,6 +13,10 @@ import {CenterComponent} from './component/center/center.component';
 import {AddCenterComponent} from './component/center/add-center/add-center.component';
 import {UpdateCenterComponent} from './component/center/update-center/update-center.component';
 import { FileUploadComponent } from './component/file-upload/file-upload.component';
+import { TripComponent } from './component/trip/trip.component';
+import { AddTripComponent } from './component/trip/add-trip/add-trip.component';
+import { UpdateTripComponent } from './component/trip/update-trip/update-trip.component';
+import { DetailTripComponent } from './component/trip/detail-trip/detail-trip.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { HomeComponent } from './component/home/home.component';
@@ -20,8 +24,6 @@ import { ProfileComponent } from './component/profile/profile.component';
 import {authInterceptorProviders} from "../helpers/auth.interceptor";
 import { UserComponent } from './component/user/user.component';
 import { UpdateUserComponent } from './component/user/update-user/update-user.component';
-
-
 
 @NgModule({
   declarations: [
@@ -33,6 +35,10 @@ import { UpdateUserComponent } from './component/user/update-user/update-user.co
     AddCenterComponent,
     UpdateCenterComponent,
     FileUploadComponent,
+    TripComponent,
+    AddTripComponent,
+    UpdateTripComponent,
+    DetailTripComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
