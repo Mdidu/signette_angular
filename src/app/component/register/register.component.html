@@ -5,82 +5,53 @@
       src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
       class="profile-img-card"
     />
-    <form
-      *ngIf="!isSuccessful"
-      name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
-      #f="ngForm"
-      novalidate
-    >
+    <form class="form-signin" *ngIf="addUserForm" [formGroup]="addUserForm" (ngSubmit)="onSubmit()" >
       <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          name="username"
-          [(ngModel)]="form.username"
-          required
-          minlength="3"
-          maxlength="20"
-          #username="ngModel"
-        />
-        <div class="alert-danger" *ngIf="username.errors && f.submitted">
-          <div *ngIf="username.errors.required">Username is required</div>
-          <div *ngIf="username.errors.minlength">
-            Username must be at least 3 characters
-          </div>
-          <div *ngIf="username.errors.maxlength">
-            Username must be at most 20 characters
-          </div>
-        </div>
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          name="email"
-          [(ngModel)]="form.email"
-          required
-          email
-          #email="ngModel"
-        />
-        <div class="alert-danger" *ngIf="email.errors && f.submitted">
-          <div *ngIf="email.errors.required">Email is required</div>
-          <div *ngIf="email.errors.email">
-            Email must be a valid email address
-          </div>
-        </div>
+        <label for="mail">Email</label>
+        <input type="text" formControlName="mail" class="form-control col-sm-10" id="mail" placeholder="Entrez l'email" />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          name="password"
-          [(ngModel)]="form.password"
-          required
-          minlength="6"
-          #password="ngModel"
-        />
-        <div class="alert-danger" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
-          </div>
-        </div>
+        <input type="password" formControlName="password" class="form-control col-sm-10" id="password" placeholder="Entrez le mot de passe" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
+        <label for="userDateOfBirth">Date de naissance</label>
+        <input type="text" formControlName="userDateOfBirth" class="form-control col-sm-10" id="userDateOfBirth" placeholder="Entrez la date de naissance" />
+      </div>
+      <div class="form-group">
+        <label for="userEntryDate">Date entrée</label>
+        <input type="text" formControlName="userEntryDate" class="form-control col-sm-10" id="userEntryDate" placeholder="Entrez la date d'entrée" />
+      </div>
+      <div class="form-group">
+        <label for="userLastname">Nom</label>
+        <input type="text" formControlName="userLastname" class="form-control col-sm-10" id="userLastname" placeholder="Entrez le nom" />
+      </div>
+      <div class="form-group">
+        <label for="userName">Prénom</label>
+        <input type="text" formControlName="userName" class="form-control col-sm-10" id="userName" placeholder="Entrez le prénom" />
+      </div>
+      <div class="form-group">
+        <label for="userNss">Numéro sécurité sociale</label>
+        <input type="text" formControlName="userNss" class="form-control col-sm-10" id="userNss" placeholder="Entrez le numéro de sécurité sociale" />
+      </div>
+      <div class="form-group">
+        <label for="userPhone">Téléphone</label>
+        <input type="text" formControlName="userPhone" class="form-control col-sm-10" id="userPhone" placeholder="Entrez le numéro de téléphone" />
+      </div>
+      <div class="form-group">
+        <label for="userUsername">Pseudo</label>
+        <input type="text" formControlName="userUsername" class="form-control col-sm-10" id="userUsername" placeholder="Entrez le pseudo" />
+      </div>
+      <div class="form-group">
+        <label class="mr-sm-2" for="roleId">Choisir un projet </label>
+        <select formControlName="roleId" id="roleId" class="custom-select mr-sm-2">
+          <option *ngFor="let role of roles" value="{{role.roleId}}">{{role.roleType}}</option>
+        </select>
       </div>
 
-      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
-      </div>
-    </form>
-
-    <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
-    </div>
+      <button type=submit" class="btn btn-primary btn-block">Sign Up</button>
+  </form>
   </div>
 </div>

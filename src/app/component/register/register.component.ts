@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../model/user/user";
 import {UserService} from "../../service/user.service";
+import {RoleService} from "../../service/role.service";
 
 
 @Component({
@@ -12,14 +13,15 @@ import {UserService} from "../../service/user.service";
 export class RegisterComponent implements OnInit {
   addUserForm: FormGroup;
   user: User;
-
+  roles: any;
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private formBuilder: FormBuilder,private userService: UserService) { }
+  constructor(private formBuilder: FormBuilder,private userService: UserService, private roleService: RoleService) { }
 
   ngOnInit(): void {
+    this.recupRole();
     this.addUserForm = this.formBuilder.group({
       mail: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -35,6 +37,16 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  recupRole() {
+    this.roles = this.roleService.findAll().subscribe(
+      (roles: any) => {
+        this.roles = roles;
+      },
+        (error: { message: string; }) => {
+          console.log("error = " + error.message);
+        }
+    );
+  }
   onSubmit(): void {
     const data = this.addUserForm.value;
     this.user = {
