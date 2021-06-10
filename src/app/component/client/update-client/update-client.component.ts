@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ClientService} from "../../../service/client.service";
 import {ActivatedRoute} from "@angular/router";
+import {ClientService} from "../../../service/client.service";
 
 @Component({
   selector: 'app-update-client',
