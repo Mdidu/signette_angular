@@ -13,8 +13,8 @@
     <td>Debut</td>
     <td>{{trip.tripStartDate}}</td>
     <td>{{trip.tripEndDate}}</td>
-    <td>{{trip.center}}</td>
-    <td>{{trip.client}}</td>
+    <td>{{trip.center.centerName}}</td>
+    <td>{{trip.client.clientWording}}</td>
     <td>{{}}</td>
     <td>
       <button (click)="onRemoveTrip(trip.tripid)" class="btn btn-primary">Supprimer</button>
