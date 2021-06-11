@@ -1,27 +1,27 @@
-<h1 class="text-center">Séjour</h1>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col">Debut</th>
-    <th scope="col">Fin</th>
-    <th scope="col">Client</th>
-    <th scope="col">Centre</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let trip of trips">
-    <td>Debut</td>
-    <td>{{trip.tripStartDate}}</td>
-    <td>{{trip.tripEndDate}}</td>
-    <td>{{trip.center.centerName}}</td>
-    <td>{{trip.client.clientWording}}</td>
-    <td>{{}}</td>
-    <td>
-      <button (click)="onRemoveTrip(trip.tripid)" class="btn btn-primary">Supprimer</button>
-    </td>
-    <td>
-      <a (click)="updateTrip(trip.tripid)" class="btn btn-primary">Modifier</a>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<!--<h1 class="text-center">Séjour</h1>-->
+<!--<table class="table table-striped">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th scope="col">Debut</th>-->
+<!--    <th scope="col">Fin</th>-->
+<!--    <th scope="col">Client</th>-->
+<!--    <th scope="col">Centre</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let trip of trips">-->
+<!--    <td>Debut</td>-->
+<!--    <td>{{trip.tripStartDate}}</td>-->
+<!--    <td>{{trip.tripEndDate}}</td>-->
+<!--    <td>{{trip.center.centerName}}</td>-->
+<!--    <td>{{trip.client.clientWording}}</td>-->
+<!--    <td>{{}}</td>-->
+<!--    <td>-->
+<!--      <button (click)="onRemoveTrip(trip.tripid)" class="btn btn-primary">Supprimer</button>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--      <a (click)="updateTrip(trip.tripid)" class="btn btn-primary">Modifier</a>-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->

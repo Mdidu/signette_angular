@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {ClientComponent} from './component/client/client.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from './app-routing.module';
@@ -42,16 +42,14 @@ import { UpdateUserComponent } from './component/user/update-user/update-user.co
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    UsGestionUser,
     ProfileComponent,
     UserComponent,
     UpdateUserComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
 
