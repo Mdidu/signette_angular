@@ -1,32 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card card-signing my-5">
-        <div class="card-body">
-          <h5 class="card-title text-center">Modifiez le trip</h5>
-          <form class="form-signing" [formGroup]="addTripForm" (ngSubmit)="onSubmit()">
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">-->
+<!--      <div class="card card-signing my-5">-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title text-center">Modifiez le trip</h5>-->
+<!--          <form class="form-signing" [formGroup]="addTripForm" (ngSubmit)="onSubmit()">-->
 
-            <label for="tripStartDate">Date de Debut :</label>
-            <input type="date" formControlName="tripStartDate" class="form-control col-sm-10" id="tripStartDate" placeholder="Entrez la date de debut" />
+<!--            <label for="tripStartDate">Date de Debut :</label>-->
+<!--            <input type="date" formControlName="tripStartDate" class="form-control col-sm-10" id="tripStartDate" placeholder="Entrez la date de debut" />-->
 
 
-            <label for="tripEndDate">Date de Fin :</label>
-            <input type="date" formControlName="tripEndDate" class="form-control col-sm-10" id="tripEndDate" placeholder="Entrez la date de fin " />
+<!--            <label for="tripEndDate">Date de Fin :</label>-->
+<!--            <input type="date" formControlName="tripEndDate" class="form-control col-sm-10" id="tripEndDate" placeholder="Entrez la date de fin " />-->
 
-            <label for="clientid">Client :</label>
-            <select formControlName="clientid" class="form-control col-sm-10" id="client" placeholder="Selectionnez un client" >
-              <option *ngFor="let client of clients" value="{{client.clientid}}">{{client.clientWording}}</option>
-            </select>
+<!--            <label for="clientid">Client :</label>-->
+<!--            <select formControlName="clientid" class="form-control col-sm-10" id="client" placeholder="Selectionnez un client" >-->
+<!--              <option *ngFor="let client of clients" value="{{client.clientid}}">{{client.clientWording}}</option>-->
+<!--            </select>-->
 
-            <label for="centerid">Center :</label>
-            <select formControlName="centerid" class="form-control col-sm-10" id="centerid" placeholder="Selectionnez un centre" >
-              <option *ngFor="let center of centers" value="{{center.centerid}}">{{center.centerName}}</option>
-            </select>
+<!--            <label for="centerid">Center :</label>-->
+<!--            <select formControlName="centerid" class="form-control col-sm-10" id="centerid" placeholder="Selectionnez un centre" >-->
+<!--              <option *ngFor="let center of centers" value="{{center.centerid}}">{{center.centerName}}</option>-->
+<!--            </select>-->
 
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!--            <button type="submit" class="btn btn-primary">Envoyer</button>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {Observable} from "rxjs";
-import {Center} from "../model/center/center";
 import 'rxjs/add/operator/map';
 
 const baseUrl = 'http://localhost:8888/role';
@@ -15,14 +13,14 @@ export class RoleService {
   constructor(private http: HttpClient, private router: Router) { }
 
   public findById(id: string | null) {
-    return this.http.get<any>(baseUrl + '/list/' + id)
+    return this.http.get<any>(baseUrl + '/read/' + id)
       .map((res: any) => {
         return res;
       });
   }
 
-  public findAll(): Observable<Center[]> {
-    return this.http.get<any>(baseUrl + '/list')
+  public findAll() {
+    return this.http.get<any>(baseUrl + '/read')
       .map((res: any) => {
         return res;
       });

@@ -28,9 +28,9 @@ export class AddressService {
   }
 
   public add(data:any){
-    return this.http.post(baseUrl + '/add', data).subscribe(
-      ()=>{
-        this.router.navigate(['adresse/read']);
+    return this.http.post(baseUrl + '/add', data)
+      .map( res => {
+        return res;
       }
     )
   }
