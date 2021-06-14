@@ -23,6 +23,13 @@ export class UserService {
       });
   }
 
+  public findByLastname(lastname: string) {
+    return this.http.get<any>(baseUrl + 'user/read/lastname/' + lastname)
+      .map(res => {
+        return res;
+      });
+  }
+
   public findAll():Observable<User[]> {
     return this.http.get<any>(baseUrl + 'user/list')
       .map((res: any) => {
@@ -39,7 +46,7 @@ export class UserService {
   }
 
   public update(userId:number ,data: any){
-    return this.http.put(baseUrl + 'user/update/'+userId, data).subscribe(
+    return this.http.put(baseUrl + 'user/update/'+ userId, data).subscribe(
       () => {
         this.router.navigate(['user/list']);
       }
@@ -47,7 +54,7 @@ export class UserService {
   }
 
   public remove(id:number){
-    return this.http.delete(baseUrl + 'user/delete/' +id).subscribe(
+    return this.http.delete(baseUrl + 'user/delete/' + id).subscribe(
       () => { }
     );
   }
