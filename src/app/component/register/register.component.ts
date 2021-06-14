@@ -87,8 +87,6 @@ export class RegisterComponent implements OnInit {
     this.addAdress(this.address);
 
     setTimeout(() => {
-      console.log("test");
-      console.log(this.adresse.addressId);
       this.user = {
         mail: data.mail,
         password: data.password,
