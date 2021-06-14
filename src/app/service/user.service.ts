@@ -23,6 +23,13 @@ export class UserService {
       });
   }
 
+  public findByLastname(lastname: string) {
+    return this.http.get<any>(baseUrl + 'user/read/lastname/' + lastname)
+      .map(res => {
+        return res;
+      });
+  }
+
   public findAll():Observable<User[]> {
     return this.http.get<any>(baseUrl + 'user/read')
       .map((res: any) => {
