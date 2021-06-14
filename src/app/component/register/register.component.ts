@@ -21,7 +21,10 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private formBuilder: FormBuilder,private userService: UserService, private roleService: RoleService, private addressService: AddressService) { }
+  constructor(private formBuilder: FormBuilder,
+              private userService: UserService,
+              private roleService: RoleService,
+              private addressService: AddressService) { }
 
   ngOnInit(): void {
     this.recupRole();
