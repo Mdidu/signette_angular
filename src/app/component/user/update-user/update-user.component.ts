@@ -79,9 +79,9 @@ export class UpdateUserComponent implements OnInit {
   }
 
   recupAddress() {
-    this.roles = this.roleService.findAll().subscribe(
-      (roles: any) => {
-        this.roles = roles;
+    this.address = this.addressService.findAll().subscribe(
+      (address: any) => {
+        this.address = address;
       },
       (error: { message: string; }) => {
         console.log("error = " + error.message);

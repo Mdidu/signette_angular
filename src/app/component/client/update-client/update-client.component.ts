@@ -33,9 +33,8 @@ export class UpdateClientComponent implements OnInit {
       clientWording: [this.client.clientWording, Validators.required,],
       clientMail: [this.client.clientMail, Validators.required, Validators.email],
       clientPhone: [this.client.clientPhone, Validators.required, Validators.pattern('[0-9]{10}')],
-      clientAddress: [this.client.clientAddress, Validators.required],
 
-      addAddressForm: this.formBuilder.group({
+      clientAddress: this.formBuilder.group({
         addressNumber: [this.client.address.addressNumber, Validators.required],
         addressStreet: [this.client.address.addressStreet, Validators.required],
         addressCity: [this.client.address.addressCity, Validators.required],
