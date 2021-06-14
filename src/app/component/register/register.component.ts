@@ -21,7 +21,10 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private formBuilder: FormBuilder,private userService: UserService, private roleService: RoleService, private addressService: AddressService) { }
+  constructor(private formBuilder: FormBuilder,
+              private userService: UserService,
+              private roleService: RoleService,
+              private addressService: AddressService) { }
 
   ngOnInit(): void {
     this.recupRole();
@@ -84,6 +87,8 @@ export class RegisterComponent implements OnInit {
     this.addAdress(this.address);
 
     setTimeout(() => {
+      console.log("test");
+      console.log(this.adresse.addressId);
       this.user = {
         mail: data.mail,
         password: data.password,
