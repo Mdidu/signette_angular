@@ -14,7 +14,7 @@ import {AddressService} from "../../service/address.service";
 export class RegisterComponent implements OnInit {
   addUserForm: FormGroup;
   user: User;
-  address: any;
+  address: Adresse;
   roles: any;
   isSuccessful = false;
   isSignUpFailed = false;
@@ -63,8 +63,8 @@ export class RegisterComponent implements OnInit {
   }
 
   addAddress(address: Adresse) {
-    this.address = this.addressService.add(address).subscribe(
-      (adresse: any)=>{
+    this.addressService.add(address).subscribe(
+      (adresse: Adresse)=>{
         this.address = adresse;
       });
   }

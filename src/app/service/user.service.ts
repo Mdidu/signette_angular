@@ -17,14 +17,14 @@ export class UserService {
   constructor(private http: HttpClient, private router: Router) { }
 
   public findById(id: string|null) {
-    return this.http.get<any>(baseUrl + 'user/read/' + id)
+    return this.http.get<any>(baseUrl + 'user/list/' + id)
       .map((res:any)=>{
         return res;
       });
   }
 
   public findAll():Observable<User[]> {
-    return this.http.get<any>(baseUrl + 'user/read')
+    return this.http.get<any>(baseUrl + 'user/list')
       .map((res: any) => {
         return res;
     });
@@ -33,7 +33,7 @@ export class UserService {
   public add(data:any){
     return this.http.post(baseUrl + 'auth/signup', data).subscribe(
       ()=>{
-        this.router.navigate(['user/read']);
+        this.router.navigate(['user/list']);
       }
     )
   }
@@ -41,7 +41,7 @@ export class UserService {
   public update(userId:number ,data: any){
     return this.http.put(baseUrl + 'user/update/'+userId, data).subscribe(
       () => {
-        this.router.navigate(['user/read']);
+        this.router.navigate(['user/list']);
       }
     )
   }

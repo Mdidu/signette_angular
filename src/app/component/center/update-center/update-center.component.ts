@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CenterService} from "../../../service/center.service";
 import {ActivatedRoute} from "@angular/router";
 import {AddressService} from "../../../service/address.service";
+import {Center} from "../../../model/center/center";
 
 @Component({
   selector: 'app-update-center',
@@ -13,37 +14,37 @@ export class UpdateCenterComponent implements OnInit {
 
   updateCenterForm: FormGroup;
   center: any;
-  adresse: any;
-  id: any;
+  address : any;
+  centerid: any;
 
   constructor(private formBuilder: FormBuilder, public centerService: CenterService, public addressService: AddressService, private route: ActivatedRoute) {
   }
   ngOnInit(): void {
     this.recupData();
-
     setTimeout(() => {
       this.form();
-    }, 1000);
+    }, 2000);
   }
   form() {
     this.updateCenterForm = this.formBuilder.group({
-      centerPicture: [this.center.centerPicture, Validators.required],
-      centerName: [this.center.centerName, Validators.required],
-      centerMail: [this.center.centerMail, Validators.required, Validators.email],
-      centerPhone: [this.center.centerPhone, Validators.required, Validators.pattern('[0-9]{10}')],
-      centerComment: [this.center.centerComment, Validators.required],
-      addressGroup: this.formBuilder.group({
-        addressNumber: [this.center.adresse.addressNumber, Validators.required],
-        addressStreet: [this.center.adresse.addressStreet, Validators.required],
-        addressCity: [this.center.adresse.addressCity, Validators.required],
-        addressCountry: [this.center.adresse.addressCountry, Validators.required]
+          centerPicture: [this.center.centerPicture, Validators.required],
+          centerName: [this.center.centerName, Validators.required],
+          centerMail: [this.center.centerMail, [Validators.required, Validators.email]],
+          centerPhone: [this.center.centerPhone, Validators.required],
+          centerComment: [this.center.centerComment, Validators.required],
+          address: this.formBuilder.group({
+            addressId:  [this.center.address.addressId, Validators.required],
+            addressNumber: [this.center.address.addressNumber, Validators.required],
+            addressStreet: [this.center.address.addressStreet, Validators.required],
+            addressCity: [this.center.address.addressCity, Validators.required],
+        addressCountry: [this.center.address.addressCountry, Validators.required]
       })
     });
   }
 
   recupData() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.center = this.centerService.findById(this.id).subscribe(
+    this.centerid = this.route.snapshot.paramMap.get('id');
+    this.centerService.findById(this.centerid).subscribe(
       (center) => {
         this.center = center;
       },
@@ -52,10 +53,31 @@ export class UpdateCenterComponent implements OnInit {
       }
     );
   }
+
   onSubmit() {
     const data = this.updateCenterForm.value;
-    this.centerService.update(this.id,data);
-  }
+    this.address = {
+      addressId: data.address.addressId,
+      addressNumber: data.address.addressNumber,
+      addressStreet: data.address.addressStreet,
+      addressCity: data.address.addressCity,
+      addressCountry: data.address.addressCountry
+    }
+    console.log("OnSubmit"+this.address.addressId);
+    this.addressService.update(this.address.addressId , this.address);
+
+    setTimeout(() => {
+      this.center = {
+        centerPicture: data.centerPicture,
+        centerName: data.centerName,
+        centerMail: data.centerMail,
+        centerPhone: data.centerPhone,
+        centerComment: data.centerComment,
+        address: this.address
+      }
+      this.centerService.update(this.centerid, this.center);
+    }, 1000);
+}
 }
 
 
