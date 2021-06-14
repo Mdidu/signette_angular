@@ -19,7 +19,8 @@
     <td>{{center.centerMail}}</td>
     <td>{{center.centerPhone}}</td>
     <td>{{center.centerComment}}</td>
-    <td>{{center.centerAdresse}}</td>
+    <td>{{center.address.addressNumber}} {{center.address.addressStreet}} -
+      {{center.address.addressCountry}} - {{center.address.addressCity}}</td>
     <td>
       <button (click)="onRemoveCenter(center.centerid)" class="btn btn-primary">Supprimer</button>
     </td>

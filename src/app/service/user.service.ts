@@ -17,7 +17,7 @@ export class UserService {
   constructor(private http: HttpClient, private router: Router) { }
 
   public findById(id: string|null) {
-    return this.http.get<any>(baseUrl + 'user/read/' + id)
+    return this.http.get<any>(baseUrl + 'user/list/' + id)
       .map((res:any)=>{
         return res;
       });
@@ -31,7 +31,7 @@ export class UserService {
   }
 
   public findAll():Observable<User[]> {
-    return this.http.get<any>(baseUrl + 'user/read')
+    return this.http.get<any>(baseUrl + 'user/list')
       .map((res: any) => {
         return res;
     });
