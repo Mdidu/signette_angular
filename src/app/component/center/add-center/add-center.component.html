@@ -1,44 +1,65 @@
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">-->
-<!--      <div class="card card-signing my-5">-->
-<!--        <div class="card-body">-->
-<!--          <h5 class="card-title text-center">Entrez le Centre à ajouter</h5>-->
-<!--          <form class="form-signing" [formGroup]="addCenterForm" (ngSubmit)="onSubmit()">-->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signing my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Entrez le Centre à ajouter</h5>
+          <form class="form-signing" [formGroup]="addCenterForm" (ngSubmit)="onSubmit()">
 
-<!--            <label for="centerPicture">Image :</label>-->
-<!--            <input type="text" formControlName="centerPicture" class="form-control col-sm-10" id="centerPicture" placeholder="Entrez l'Url de l'image" />-->
+            <div class="form-group">
+              <label for="centerPicture">Image :</label>
+              <input type="text" formControlName="centerPicture" class="form-control col-sm-10" id="centerPicture"
+                     placeholder="Entrez l'Url de l'image"/>
+            </div>
+            <div class="form-group">
+              <label for="centerName">Nom :</label>
+              <input type="text" formControlName="centerName" class="form-control col-sm-10" id="centerName"
+                     placeholder="Entrez Nom du Centre"/>
+            </div>
+            <div class="form-group">
 
-<!--            <label for="centerName">Nom  :</label>-->
-<!--            <input type="text" formControlName="centerName" class="form-control col-sm-10" id="centerName" placeholder="Entrez Nom du Centre" />-->
+              <label for="centerMail">Email :</label>
+              <input type="email" formControlName="centerMail" class="form-control col-sm-10" id="centerMail"
+                     placeholder="Entrez l'email"/>
+            </div>
+            <div class="form-group">
 
+              <label for="centerPhone">Téléphone :</label>
+              <input type="text" formControlName="centerPhone" class="form-control col-sm-10" id="centerPhone"
+                     placeholder="Entrez le numero de telephone "/>
+            </div>
+            <div class="form-group">
 
-<!--            <label for="centerMail">Email :</label>-->
-<!--            <input type="email" formControlName="centerMail" class="form-control col-sm-10" id="centerMail" placeholder="Entrez l'email" />-->
+              <label for="centerComment">Commentaire :</label>
 
+              <textarea formControlName="centerComment" class="form-control col-sm-10" id="centerComment"
+                     placeholder="Entrez un commentaire" rows="4"></textarea>
+            </div>
 
-<!--            <label for="centerPhone">Téléphone :</label>-->
-<!--            <input type="text" formControlName="centerPhone" class="form-control col-sm-10" id="centerPhone" placeholder="Entrez le numero de telephone " />-->
+            <fieldset formGroupName="addressGroup">
+              <div class="form-group">
+                <label for="addressNumber">Numéro de rue <span class="text-danger">*</span> :</label>
+                <input type="text" formControlName="addressNumber" class="form-control col-sm-10" id="addressNumber"
+                       placeholder="Entrez le numéro de rue"/>
 
+                <label for="addressStreet">Rue <span class="text-danger">*</span> :</label>
+                <input type="text" formControlName="addressStreet" class="form-control col-sm-10" id="addressStreet"
+                       placeholder="Entrez le nom de la rue"/>
 
-<!--            <label for="centerComment">Commentaire :</label>-->
-<!--            <input type="text" formControlName="centerComment" class="form-control col-sm-10" id="centerComment" placeholder="Entrez un commentaire" />-->
+                <label for="addressCity">Ville <span class="text-danger">*</span> :</label>
+                <input type="text" formControlName="addressCity" class="form-control col-sm-10" id="addressCity"
+                       placeholder="Entrez la ville"/>
 
-<!--            <div class="form-group" formGroupName="address">-->
-<!--              <label for="addressNumber">Numeros :</label>-->
-<!--              <input type="number" formControlName="addressNumber" class="form-control col-sm-10" id="addressNumber" placeholder="Entrez le numeros" />-->
-<!--              <label for="addressStreet">Rue :</label>-->
-<!--              <input type="text" formControlName="addressStreet" class="form-control col-sm-10" id="addressStreet" placeholder="Entrez la rue" />-->
-<!--              <label for="addressNumber">Ville :</label>-->
-<!--              <input type="text" formControlName="addressCity" class="form-control col-sm-10" id="addressCity" placeholder="Entrez la ville" />-->
-<!--              <label for="addressCountry">Pays :</label>-->
-<!--              <input type="text" formControlName="addressCountry" class="form-control col-sm-10" id="addressCountry" placeholder="Entrez le pays" />-->
-<!--            </div>-->
-<!--            <button type="submit" [disabled]="addCenterForm.invalid" class="btn btn-primary">Envoyer</button>-->
-<!--          </form>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+                <label for="addressCountry">Pays <span class="text-danger">*</span> :</label>
+                <input type="text" formControlName="addressCountry" class="form-control col-sm-10" id="addressCountry"
+                       placeholder="Entrez le pays de résidence"/>
+              </div>
+            </fieldset>
+            <button type="submit" [disabled]="addCenterForm.invalid" class="btn btn-primary">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!--</div>-->
+</div>

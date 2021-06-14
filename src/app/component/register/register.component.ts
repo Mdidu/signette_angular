@@ -14,8 +14,7 @@ import {AddressService} from "../../service/address.service";
 export class RegisterComponent implements OnInit {
   addUserForm: FormGroup;
   user: User;
-  address: Adresse;
-  adresse: any;
+  address: any;
   roles: any;
   isSuccessful = false;
   isSignUpFailed = false;
@@ -63,11 +62,10 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  addAdress(address: Adresse) {
-    this.adresse = this.addressService.add(address).subscribe(
+  addAddress(address: Adresse) {
+    this.address = this.addressService.add(address).subscribe(
       (adresse: any)=>{
-        this.adresse = adresse;
-        // this.router.navigate(['adresse/read']);
+        this.address = adresse;
       });
   }
 
@@ -81,7 +79,7 @@ export class RegisterComponent implements OnInit {
       addressCountry: data.addressGroup.addressCountry
     }
 
-    this.addAdress(this.address);
+    this.addAddress(this.address);
 
     setTimeout(() => {
       this.user = {
@@ -94,7 +92,7 @@ export class RegisterComponent implements OnInit {
         userNss: data.userNss,
         userPhone: data.userPhone,
         userUsername: data.userUsername,
-        addressId: this.adresse.addressId,
+        addressId: this.address.addressId,
         roleId: parseInt(data.roleId)
       }
 

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CenterService} from "../../../service/center.service";
 import {ActivatedRoute} from "@angular/router";
+import {AddressService} from "../../../service/address.service";
 
 @Component({
   selector: 'app-update-center',
@@ -12,9 +13,10 @@ export class UpdateCenterComponent implements OnInit {
 
   updateCenterForm: FormGroup;
   center: any;
+  adresse: any;
   id: any;
 
-  constructor(private formBuilder: FormBuilder, public centerService: CenterService, private route: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder, public centerService: CenterService, public addressService: AddressService, private route: ActivatedRoute) {
   }
   ngOnInit(): void {
     this.recupData();
@@ -25,13 +27,12 @@ export class UpdateCenterComponent implements OnInit {
   }
   form() {
     this.updateCenterForm = this.formBuilder.group({
-      centerid: [this.center.centerid, Validators.required],
       centerPicture: [this.center.centerPicture, Validators.required],
       centerName: [this.center.centerName, Validators.required],
       centerMail: [this.center.centerMail, Validators.required, Validators.email],
       centerPhone: [this.center.centerPhone, Validators.required, Validators.pattern('[0-9]{10}')],
       centerComment: [this.center.centerComment, Validators.required],
-      Address: this.formBuilder.group({
+      addressGroup: this.formBuilder.group({
         addressNumber: [this.center.adresse.addressNumber, Validators.required],
         addressStreet: [this.center.adresse.addressStreet, Validators.required],
         addressCity: [this.center.adresse.addressCity, Validators.required],

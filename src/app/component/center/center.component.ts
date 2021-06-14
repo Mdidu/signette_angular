@@ -13,7 +13,7 @@ export class CenterComponent implements OnInit {
 
   centers: any;
 
-  constructor(private formBuilder: FormBuilder, public centerService: CenterService,  private router: Router) {
+  constructor(public centerService: CenterService,  private router: Router) {
     this.displayCenter();
   }
 
