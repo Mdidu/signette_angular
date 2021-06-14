@@ -14,9 +14,7 @@ export class AddClientComponent implements OnInit {
 
   addClientForm: FormGroup;
   client:Client;
-  address: Adresse;
-  adresse:any;
-
+  address: any;
 
   constructor(private formBuilder: FormBuilder, public clientService: ClientService, private addressService: AddressService) {
   }
@@ -37,10 +35,9 @@ export class AddClientComponent implements OnInit {
   }
 
   addAdress(address: Adresse) {
-    this.adresse = this.addressService.add(address).subscribe(
+    this.address = this.addressService.add(address).subscribe(
       (adresse: any)=>{
-        this.adresse = adresse;
-        // this.router.navigate(['adresse/read']);
+        this.address = adresse;
       });
   }
 
@@ -59,7 +56,7 @@ export class AddClientComponent implements OnInit {
         clientWording: data.clientWording,
         clientMail: data.clientMail,
         clientPhone: data.clientPhone,
-        clientAddress: this.address
+        address: this.address
       }
       console.log(this.client)
       this.clientService.add(this.client);

@@ -5,5 +5,5 @@ export class Client {
   clientWording?: string;
   clientMail?: string;
   clientPhone?: string;
-  clientAddress?: Adresse;
+  address?: Adresse;
 }

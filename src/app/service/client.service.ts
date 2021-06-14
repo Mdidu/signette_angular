@@ -32,7 +32,7 @@ export class ClientService {
   public add(data: any) {
     return this.http.post(baseUrl + '/add', data).subscribe(
       () => {
-        this.router.navigate(['client/read']);
+        this.router.navigate(['client/list']);
       }
     );
   }
