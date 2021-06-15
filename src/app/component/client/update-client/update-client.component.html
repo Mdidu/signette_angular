@@ -24,9 +24,10 @@
                      placeholder="Entrez le numéro de téléphone du client"/>
             </div>
 
-            <div class="form-group" formGroupName="clientAddress">
+            <div class="form-group" formGroupName="address">
+              <input type="hidden" formControlName="addressId">
               <label for="addressNumber">Numéro de rue <span class="text-danger">*</span> :</label>
-              <input type="text" formControlName="addressNumber" class="form-control col-sm-10" id="addressNumber"
+              <input type="number" formControlName="addressNumber" class="form-control col-sm-10" id="addressNumber"
                      placeholder="Entrez le numéro de rue"/>
 
               <label for="addressStreet">Rue <span class="text-danger">*</span> :</label>

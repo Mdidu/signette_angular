@@ -25,6 +25,15 @@ export class ClientService {
   public findAll(): Observable<Client[]> {
     return this.http.get<any>(baseUrl + '/read')
       .map((res: any) => {
+        console.log(res);
+        return res;
+
+      });
+  }
+
+  public findByName(name: string): Observable<Client[]>{
+    return this.http.get<any>(baseUrl + '/read/name/' + name)
+      .map((res:any) => {
         return res;
       });
   }
@@ -32,15 +41,15 @@ export class ClientService {
   public add(data: any) {
     return this.http.post(baseUrl + '/add', data).subscribe(
       () => {
-        this.router.navigate(['client/list']);
+        this.router.navigate(['client/read']);
       }
     );
   }
 
-  public update(clientId: number, data: any) {
-    return this.http.put(baseUrl + '/update/' + clientId, data).subscribe(
+  public update(data: any) {
+    return this.http.put(baseUrl + '/update', data).subscribe(
       () => {
-        this.router.navigate(['client/read']);
+        this.router.navigate(['client/list']);
       }
     );
   }

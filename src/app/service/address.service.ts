@@ -38,7 +38,7 @@ export class AddressService {
   public update(addressId: number, data: any){
     return this.http.put(baseUrl + '/update/' + addressId, data).subscribe(
       ()=>{
-        this.router.navigate(['adresse/read']);
+        //this.router.navigate(['adresse/read']);
       }
     )
   }

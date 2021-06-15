@@ -1,4 +1,15 @@
 <h1 class="text-center">Gestion des Clients</h1>
+
+<form [formGroup]="clientName" (ngSubmit)="searchClient()">
+  <div class="form-group">
+    <label for="nomClient">Rechercher un client par son nom :</label>
+    <input type="text" class="form-control" id="nomClient" formControlName="name"  placeholder="Nom">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Rechercher</button>
+  <button type="button" (click)="displayClient()" class="btn btn-primary">Afficher tout les clients</button>
+</form>
+
 <table class="table table-striped">
   <thead>
   <tr>
@@ -6,7 +17,7 @@
     <th scope="col">clientWording</th>
     <th scope="col">clientMail</th>
     <th scope="col">clientPhone</th>
-    <th scope="col">clientAddress</th>
+    <th scope="col">Adresse</th>
     <th scope="col">Supprimer</th>
     <th scope="col">Modifier</th>
   </tr>
@@ -17,7 +28,7 @@
     <td>{{client.clientWording}}</td>
     <td>{{client.clientMail}}</td>
     <td>{{client.clientPhone}}</td>
-    <td>{{client.addressId}}</td>
+    <td>{{client.address.addressNumber}}, {{client.address.addressStreet}}-{{client.address.addressCity}} / {{client.address.addressCountry}}</td>
     <td>
       <button (click)="onRemoveClient(client.clientId)" class="btn btn-primary">Supprimer</button>
     </td>
