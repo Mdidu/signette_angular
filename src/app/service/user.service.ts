@@ -45,8 +45,8 @@ export class UserService {
     )
   }
 
-  public update(userId:number ,data: any){
-    return this.http.put(baseUrl + 'user/update/'+ userId, data).subscribe(
+  public update(data: any){
+    return this.http.put(baseUrl + 'user/update', data).subscribe(
       () => {
         this.router.navigate(['user/list']);
       }
