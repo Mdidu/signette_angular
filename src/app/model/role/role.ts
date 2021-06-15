@@ -1,4 +1,4 @@
 export class Role {
-  roleId: number;
-  roleType: string;
+  roleId?: number;
+  roleType?: string;
 }

@@ -3,15 +3,15 @@ import {Role} from "../role/role";
 
 export class Employee {
   userId?: number;
-  mail?: string;
-  password?: string;
+  userMail?: string;
+  userPassword?: string;
   userDateOfBirth?: Date;
   userEntryDate?: Date;
   userLastname?: string;
-  userName?: string;
+  nameUser?: string;
   userNss?: number;
   userPhone?: string;
   userUsername?: string;
-  addressId?: Adresse;
-  roleId?: Role;
+  address: Adresse;
+  role: Role;
 }
