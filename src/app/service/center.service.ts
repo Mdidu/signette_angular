@@ -49,4 +49,11 @@ export class CenterService {
       () => {}
     );
   }
+
+  public findByCenterName(centerName: string | null) {
+    return this.http.get<any>(baseUrl + '/read/search/' + centerName)
+      .map((res: any) => {
+        return res;
+      });
+  }
 }
