@@ -101,6 +101,8 @@ export class UpdateUserComponent implements OnInit {
       addressCity: data.address.addressCity,
       addressCountry: data.address.addressCountry,
     }
+
+    this.addressService.update(data.address.addressId ,this.addressModel);
   }
 
   fillRoleModel() {
