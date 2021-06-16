@@ -1,4 +1,13 @@
 <h1 class="text-center">Centre de Vacances</h1>
+<div class="col-md-12">
+  <div class="card card-container">
+    <form class="form-signin" *ngIf="searchCenterNameForm" [formGroup]="searchCenterNameForm" (ngSubmit)="onSubmit()">
+      <label for="centerName">Entrez le nom :</label>
+      <input type="text" formControlName="centerName" class="form-control col-sm-10" id="centerName" placeholder="Entrez le nom" />
+      <button type="submit">Rechercher :</button>
+    </form>
+  </div>
+</div>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -19,7 +28,8 @@
     <td>{{center.centerMail}}</td>
     <td>{{center.centerPhone}}</td>
     <td>{{center.centerComment}}</td>
-    <td>{{center.centerAdresse}}</td>
+    <td>{{center.address.addressNumber}} {{center.address.addressStreet}} -
+      {{center.address.addressCountry}} - {{center.address.addressCity}}</td>
     <td>
       <button (click)="onRemoveCenter(center.centerid)" class="btn btn-primary">Supprimer</button>
     </td>

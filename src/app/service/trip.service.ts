@@ -31,7 +31,7 @@ export class TripService {
   public add(data: any) {
     return this.http.post(baseUrl + '/add', data).subscribe(
       () => {
-        this.router.navigate(['trip/read']);
+        this.router.navigate(['trip/list']);
       }
     );
   }

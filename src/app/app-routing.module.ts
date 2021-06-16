@@ -11,6 +11,12 @@ import {LoginComponent} from "./component/login/login.component";
 import {RegisterComponent} from "./component/register/register.component";
 import {ProfileComponent} from "./component/profile/profile.component";
 import {TripByClientComponent} from "./component/client/trip-by-client/trip-by-client.component";
+import {TripComponent} from "./component/trip/trip.component";
+import {AddTripComponent} from "./component/trip/add-trip/add-trip.component";
+import {UpdateTripComponent} from "./component/trip/update-trip/update-trip.component";
+import {DetailTripComponent} from "./component/trip/detail-trip/detail-trip.component";
+import {UserComponent} from "./component/user/user.component";
+import {UpdateUserComponent} from "./component/user/update-user/update-user.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -24,6 +30,12 @@ const routes: Routes = [
   {path: 'center/list', component: CenterComponent},
   {path: 'center/add', component: AddCenterComponent},
   {path: 'center/update/:id', component: UpdateCenterComponent},
+  {path: 'trip/list', component: TripComponent},
+  {path: 'trip/add', component: AddTripComponent},
+  {path: 'trip/update/:id', component: UpdateTripComponent},
+  {path: 'trip/detail', component: DetailTripComponent},
+  {path: 'user/list', component: UserComponent},
+  {path: 'user/update/:id', component: UpdateUserComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

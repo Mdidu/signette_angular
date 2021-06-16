@@ -31,7 +31,7 @@ export class CenterService {
   public add(data: any) {
     return this.http.post(baseUrl + '/add', data).subscribe(
       () => {
-        this.router.navigate(['center/read']);
+        this.router.navigate(['center/list']);
       }
     );
   }
@@ -39,7 +39,7 @@ export class CenterService {
   public update(id: number, data: any) {
     return this.http.put(baseUrl + '/update/' + id, data).subscribe(
       () => {
-        this.router.navigate(['center/read']);
+        this.router.navigate(['center/list']);
       }
     );
   }
@@ -48,5 +48,12 @@ export class CenterService {
     return this.http.delete(baseUrl + '/delete/' + id).subscribe(
       () => {}
     );
+  }
+
+  public findByCenterName(centerName: string | null) {
+    return this.http.get<any>(baseUrl + '/read/search/' + centerName)
+      .map((res: any) => {
+        return res;
+      });
   }
 }

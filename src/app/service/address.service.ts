@@ -35,13 +35,14 @@ export class AddressService {
     )
   }
 
-  public update(addressId: number, data: any){
+  public update(addressId: number | undefined, data: any){
     return this.http.put(baseUrl + '/update/' + addressId, data).subscribe(
       ()=>{
         //this.router.navigate(['adresse/read']);
       }
     )
   }
+
 
   public remove(id:number){
     return this.http.delete(baseUrl + '/delete/' +id).subscribe(

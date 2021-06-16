@@ -15,13 +15,15 @@ export class RegisterComponent implements OnInit {
   addUserForm: FormGroup;
   user: User;
   address: Adresse;
-  adresse: any;
   roles: any;
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private formBuilder: FormBuilder,private userService: UserService, private roleService: RoleService, private addressService: AddressService) { }
+  constructor(private formBuilder: FormBuilder,
+              private userService: UserService,
+              private roleService: RoleService,
+              private addressService: AddressService) { }
 
   ngOnInit(): void {
     this.recupRole();
@@ -63,11 +65,10 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  addAdress(address: Adresse) {
-    this.adresse = this.addressService.add(address).subscribe(
-      (adresse: any)=>{
-        this.adresse = adresse;
-        // this.router.navigate(['adresse/read']);
+  addAddress(address: Adresse) {
+    this.addressService.add(address).subscribe(
+      (adresse: Adresse)=>{
+        this.address = adresse;
       });
   }
 
@@ -81,7 +82,7 @@ export class RegisterComponent implements OnInit {
       addressCountry: data.addressGroup.addressCountry
     }
 
-    this.addAdress(this.address);
+    this.addAddress(this.address);
 
     setTimeout(() => {
       this.user = {
@@ -94,7 +95,7 @@ export class RegisterComponent implements OnInit {
         userNss: data.userNss,
         userPhone: data.userPhone,
         userUsername: data.userUsername,
-        addressId: this.adresse.addressId,
+        addressId: this.address.addressId,
         roleId: parseInt(data.roleId)
       }
 

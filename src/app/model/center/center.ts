@@ -7,5 +7,5 @@ export class Center {
   centerMail?: string;
   centerPhone?: string;
   centerComment?: string;
-  adresse?: Adresse;
+  address?: Adresse;
 }

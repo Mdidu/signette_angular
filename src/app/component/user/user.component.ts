@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../service/user.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {UserService} from "../../service/user.service";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
+  searchUserLastnameForm: FormGroup;
   users: any;
 
   constructor(private formBuilder: FormBuilder, public userService: UserService, private router: Router) {
@@ -17,12 +17,20 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.form();
+  }
+
+  form() {
+    this.searchUserLastnameForm = this.formBuilder.group( {
+      userLastname: ['', Validators.required]
+    });
   }
 
   displayUser() {
     this.users = this.userService.findAll().subscribe(
       (users) => {
         this.users = users;
+        console.log(this.users)
       },
       (error) => {
         console.log('error=' + error.message);
@@ -39,11 +47,20 @@ export class UserComponent implements OnInit {
       }, 1000);
   }
 
-  updateUser(id: number) {
-    this.router.navigate(['/user/update/', id]);
-  }
-
   detailUser(id: number) {
     this.router.navigate(['/user/', id]);
+  }
+
+  onSubmit() {
+    const data = this.searchUserLastnameForm.value;
+
+    this.userService.findByLastname(data.userLastname).subscribe(
+      (users) => {
+        this.users = users;
+      },
+      (error) => {
+        console.log('errors=' + error.message);
+      }
+    );
   }
 }

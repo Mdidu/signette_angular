@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from "@angular/forms";
 import {Router} from "@angular/router";
 import {CenterService} from "../../service/center.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -12,15 +12,20 @@ import {CenterService} from "../../service/center.service";
 export class CenterComponent implements OnInit {
 
   centers: any;
+  searchCenterNameForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, public centerService: CenterService,  private router: Router) {
-    this.displayCenter();
   }
 
   ngOnInit(): void {
-
+    this.displayCenter();
+    this.form();
   }
-
+  form() {
+    this.searchCenterNameForm = this.formBuilder.group( {
+      centerName: ['', Validators.required]
+    });
+  }
   displayCenter() {
     this.centers = this.centerService.findAll().subscribe(
       (centers) => {
@@ -43,7 +48,16 @@ export class CenterComponent implements OnInit {
   updateCenter(id: number){
     this.router.navigate(['/center/update/', id]);
   }
-  detailCenter(id: number){
-    this.router.navigate(['/center/', id]);
+  onSubmit() {
+    const data = this.searchCenterNameForm.value;
+
+    this.centerService.findByCenterName(data.centerName).subscribe(
+      (centers) => {
+        this.centers = centers;
+      },
+      (error) => {
+        console.log('errors=' + error.message);
+      }
+    );
   }
 }
