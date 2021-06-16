@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../../service/client.service";
+import {Client} from "../../../model/client/client";
+import {Adresse} from "../../../model/adresse/adresse";
+import {AddressService} from "../../../service/address.service";
 
 @Component({
   selector: 'app-update-client',
@@ -10,12 +13,14 @@ import {ClientService} from "../../../service/client.service";
 })
 export class UpdateClientComponent implements OnInit {
 
-  updateClientForm: FormGroup
-  client: any
-  clientId: any
+  updateClientForm: FormGroup;
+  client: any;
+  clt:Client;
+  address:any;
+  clientId: any;
 
 
-  constructor(private formBuilder: FormBuilder, public clientService: ClientService, private route: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder, public clientService: ClientService,private adresseService: AddressService,private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -23,19 +28,20 @@ export class UpdateClientComponent implements OnInit {
 
     setTimeout(() => {
       this.form();
+
     }, 1000);
 
   }
 
   form() {
     this.updateClientForm = this.formBuilder.group({
-      clientId: [this.client.clientId],
-      clientWording: [this.client.clientWording, Validators.required,],
-      clientMail: [this.client.clientMail, Validators.required, Validators.email],
-      clientPhone: [this.client.clientPhone, Validators.required, Validators.pattern('[0-9]{10}')],
-      clientAddress: [this.client.clientAddress, Validators.required],
+      clientId: [this.client.clientId, Validators.required],
+      clientWording: [this.client.clientWording, Validators.required],
+      clientMail: [this.client.clientMail, [Validators.required, Validators.email]],
+      clientPhone: [this.client.clientPhone, [Validators.required, Validators.pattern('[0-9]{10}')]],
 
-      addAddressForm: this.formBuilder.group({
+      address: this.formBuilder.group({
+        addressId: [this.client.address.addressId, Validators.required],
         addressNumber: [this.client.address.addressNumber, Validators.required],
         addressStreet: [this.client.address.addressStreet, Validators.required],
         addressCity: [this.client.address.addressCity, Validators.required],
@@ -58,7 +64,25 @@ export class UpdateClientComponent implements OnInit {
 
   onSubmit() {
     const data = this.updateClientForm.value;
-    this.clientService.update(this.clientId, data);
+    console.log(data.address)
+    this.address  = {
+      addressId: data.address.addressId,
+      addressNumber: data.address.addressNumber,
+      addressStreet: data.address.addressStreet,
+      addressCity: data.address.addressCity,
+      addressCountry: data.address.addressCountry
+    }
+
+    this.clt = {
+      clientId: data.clientId,
+      clientWording: data.clientWording,
+      clientMail: data.clientMail,
+      clientPhone: data.clientPhone,
+      address: this.address
+    }
+    console.log(this.clt)
+    this.adresseService.update(this.address.addressId,this.address);
+    this.clientService.update(this.clt);
   }
 
 

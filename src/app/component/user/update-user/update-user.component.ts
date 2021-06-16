@@ -81,6 +81,7 @@ export class UpdateUserComponent implements OnInit {
     );
   }
 
+
   recupRoleById(id: string | null) {
     this.roleService.findById(id).subscribe(
       (roles: any) => {

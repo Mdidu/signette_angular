@@ -10,6 +10,7 @@ import {HomeComponent} from "./component/home/home.component";
 import {LoginComponent} from "./component/login/login.component";
 import {RegisterComponent} from "./component/register/register.component";
 import {ProfileComponent} from "./component/profile/profile.component";
+import {TripByClientComponent} from "./component/client/trip-by-client/trip-by-client.component";
 import {TripComponent} from "./component/trip/trip.component";
 import {AddTripComponent} from "./component/trip/add-trip/add-trip.component";
 import {UpdateTripComponent} from "./component/trip/update-trip/update-trip.component";
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'client/list', component: ClientComponent},
   {path: 'client/add', component: AddClientComponent},
   {path: 'client/update/:id', component: UpdateClientComponent},
+  {path: 'client/trip/:id', component: TripByClientComponent},
   {path: 'center/list', component: CenterComponent},
   {path: 'center/add', component: AddCenterComponent},
   {path: 'center/update/:id', component: UpdateCenterComponent},

@@ -24,6 +24,7 @@ import { ProfileComponent } from './component/profile/profile.component';
 import {authInterceptorProviders} from "../helpers/auth.interceptor";
 import { UserComponent } from './component/user/user.component';
 import { UpdateUserComponent } from './component/user/update-user/update-user.component';
+import { TripByClientComponent } from './component/client/trip-by-client/trip-by-client.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { UpdateUserComponent } from './component/user/update-user/update-user.co
     HomeComponent,
     ProfileComponent,
     UserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    TripByClientComponent
   ],
   imports: [
     BrowserModule,
