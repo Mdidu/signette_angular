@@ -12,6 +12,8 @@ import {TripByCenter} from "../../../model/tripByCenter/trip-by-center";
 })
 export class ChartjsComponent implements OnInit {
 
+  public nameUser: string;
+  public userLastname: string;
   public datasTripByCenter: TripByCenter[];
   public type: ChartType = 'bar';
 
@@ -35,6 +37,8 @@ export class ChartjsComponent implements OnInit {
     this.postService.findByTripByCenter(id).subscribe(
       trips => {
         this.datasTripByCenter = trips;
+        this.nameUser = this.datasTripByCenter[0].nameUser;
+        this.userLastname = this.datasTripByCenter[0].userLastname;
       },
       error => {
         console.log("error=" + error.message);
@@ -43,7 +47,6 @@ export class ChartjsComponent implements OnInit {
   }
 
   diagram() {
-
     for(let i = 0; i < this.datasTripByCenter.length; i++) {
       this.data[i] = this.datasTripByCenter[i].nbTrip;
       this.labels[i] = this.datasTripByCenter[i].centerName;
