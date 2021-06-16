@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CenterService} from "../../../service/center.service";
 import {ActivatedRoute} from "@angular/router";
 import {AddressService} from "../../../service/address.service";
-import {Center} from "../../../model/center/center";
 
 @Component({
   selector: 'app-update-center',
@@ -37,8 +36,8 @@ export class UpdateCenterComponent implements OnInit {
             addressNumber: [this.center.address.addressNumber, Validators.required],
             addressStreet: [this.center.address.addressStreet, Validators.required],
             addressCity: [this.center.address.addressCity, Validators.required],
-        addressCountry: [this.center.address.addressCountry, Validators.required]
-      })
+            addressCountry: [this.center.address.addressCountry, Validators.required]
+          })
     });
   }
 

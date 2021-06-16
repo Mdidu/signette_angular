@@ -1,7 +1,7 @@
 import {Adresse} from "../adresse/adresse";
 
 export class Center {
-  centerid?: number;
+  centerId?: number;
   centerPicture?: string;
   centerName?: string;
   centerMail?: string;

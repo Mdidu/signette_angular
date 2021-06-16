@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
-import {CenterService} from "../../service/center.service";
 import {Router} from "@angular/router";
 import {TripService} from "../../service/trip.service";
 import {Trip} from "../../model/trip/trip";
@@ -12,14 +11,13 @@ import {Trip} from "../../model/trip/trip";
 })
 export class TripComponent implements OnInit {
 
-  trips: Trip[];
+  trips: any[];
 
   constructor(private formBuilder: FormBuilder, public tripService: TripService,  private router: Router) {
-    this.displayTrip();
   }
 
   ngOnInit(): void {
-
+    this.displayTrip();
   }
 
   displayTrip() {
