@@ -34,7 +34,7 @@ const routes: Routes = [
   {path: 'trip/list', component: TripComponent},
   {path: 'trip/add', component: AddTripComponent},
   {path: 'trip/update/:id', component: UpdateTripComponent},
-  {path: 'trip/detail', component: DetailTripComponent},
+  {path: 'trip/detail/:id', component: DetailTripComponent},
   {path: 'user/list', component: UserComponent},
   {path: 'user/update/:id', component: UpdateUserComponent},
   {path: 'chart/:id', component: ChartjsComponent},
