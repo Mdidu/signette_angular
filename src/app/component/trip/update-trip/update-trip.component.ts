@@ -37,11 +37,14 @@ export class UpdateTripComponent implements OnInit {
 
   form() {
     this.updateTripForm = this.formBuilder.group({
-      tripId: [this.tripId, Validators.required],
       tripStartDate: [this.trip.tripStartDate, Validators.required],
       tripEndDate: [this.trip.tripEndDate, Validators.required],
-      center: [this.trip.centerId, Validators.required],
-      client: [this.trip.client.clientId, Validators.required],
+      client: this.formBuilder.group({
+        clientId:  [this.trip.client.clientId, Validators.required],
+      }),
+      center: this.formBuilder.group({
+        centerId:  [this.trip.center.centerId, Validators.required],
+      })
     });
   }
 
@@ -81,14 +84,14 @@ export class UpdateTripComponent implements OnInit {
 
   onSubmit() {
     const data = this.updateTripForm.value;
-    setTimeout(() => {
-      this.client = {
-        clientId: data.clientId
-      }
-      this.center = {
-        centerId: data.centerId
-      }
 
+    this.client = {
+      clientId: data.client.clientId
+    }
+    this.center = {
+      centerId: data.center.centerId
+    }
+    setTimeout(() => {
       this.trip = {
         tripStartDate: data.tripStartDate,
         tripEndDate: data.tripEndDate,
