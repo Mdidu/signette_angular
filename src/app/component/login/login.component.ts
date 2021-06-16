@@ -28,9 +28,13 @@ export class LoginComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
+      this.authService.setAuthenticated(true);
+      this.isLoggedIn = this.authService.isAuthenticated();
       this.roles = this.tokenStorage.getUser().roles;
+      this.router.navigate(['home']);
     }
 
     this.form();
@@ -55,8 +59,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-
-        this.router.navigate(['home']);
+        window.location.reload();
       },
       err => {
         this.errorMessage = err.error.message;
