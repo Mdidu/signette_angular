@@ -25,6 +25,8 @@ import {authInterceptorProviders} from "../helpers/auth.interceptor";
 import { UserComponent } from './component/user/user.component';
 import { UpdateUserComponent } from './component/user/update-user/update-user.component';
 import { TripByClientComponent } from './component/client/trip-by-client/trip-by-client.component';
+import { ChartjsComponent } from './component/chart/bar/chartjs.component';
+import {ChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { TripByClientComponent } from './component/client/trip-by-client/trip-by
     ProfileComponent,
     UserComponent,
     UpdateUserComponent,
-    TripByClientComponent
+    TripByClientComponent,
+    ChartjsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { TripByClientComponent } from './component/client/trip-by-client/trip-by
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
+    ChartsModule,
 
   ],
   providers: [authInterceptorProviders],
