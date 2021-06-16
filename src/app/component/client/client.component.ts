@@ -67,6 +67,10 @@ export class ClientComponent implements OnInit {
     );
   }
 
+  searchSejours(id: number){
+    this.router.navigate(['/client/trip', id]);
+  }
+
   detailClient(id: number) {
     this.router.navigate(['/client/', id]);
   }

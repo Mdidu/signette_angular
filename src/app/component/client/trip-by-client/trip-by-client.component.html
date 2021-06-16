@@ -1,0 +1,25 @@
+<h1 class="text-center">Liste des séjours du client : {{client.clientWording}}</h1>
+
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Trip Id</th>
+    <th scope="col">Date début</th>
+    <th scope="col">Date fin</th>
+    <th scope="col">Center Name</th>
+    <th scope="col">Center Phone</th>
+    <th scope="col">Center Mail</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let trip of trips">
+    <td>{{trip.tripId}}</td>
+    <td>{{trip.tripStartDate | date}}</td>
+    <td>{{trip.tripEndDate | date}}</td>
+    <td>{{trip.center.centerName}}</td>
+    <td>{{trip.center.centerPhone}}</td>
+    <td>{{trip.center.centerMail}}</td>
+  </tr>
+  </tbody>
+</table>

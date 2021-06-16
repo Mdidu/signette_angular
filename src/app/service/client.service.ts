@@ -38,6 +38,13 @@ export class ClientService {
       });
   }
 
+  public findTripByClientId(id: number){
+    return this.http.get<any>(baseUrl + '/read/trip/' + id)
+      .map((res:any)=>{
+        return res;
+      });
+  }
+
   public add(data: any) {
     return this.http.post(baseUrl + '/add', data).subscribe(
       () => {

@@ -20,6 +20,7 @@
     <th scope="col">Adresse</th>
     <th scope="col">Supprimer</th>
     <th scope="col">Modifier</th>
+    <th scope="col">Liste séjours</th>
   </tr>
   </thead>
   <tbody>
@@ -30,10 +31,13 @@
     <td>{{client.clientPhone}}</td>
     <td>{{client.address.addressNumber}}, {{client.address.addressStreet}}-{{client.address.addressCity}} / {{client.address.addressCountry}}</td>
     <td>
-      <button (click)="onRemoveClient(client.clientId)" class="btn btn-primary">Supprimer</button>
+      <button (click)="onRemoveClient(client.clientId)" class="btn btn-danger">Supprimer</button>
     </td>
     <td>
       <a (click)="updateClient(client.clientId)" class="btn btn-primary">Modifier</a>
+    </td>
+    <td>
+      <a (click)="searchSejours(client.clientId)" class="btn btn-primary">Voir séjours</a>
     </td>
   </tr>
   </tbody>
