@@ -16,4 +16,12 @@ export class PostService {
         return res;
       })
   }
+
+  public findByTrip(id: string) {
+    return this.http.get<any>(baseUrl + '/readBytrip/' + id)
+      .map((res: any) => {
+        return res;
+      })
+  }
+
 }

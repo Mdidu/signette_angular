@@ -1,1 +1,61 @@
-<p>detail-trip works!</p>
+<div class="pricing1 py-5 bg-light">
+  <div class="container">
+    <!-- Row  -->
+    <div class="row mt-5">
+      <!-- Column -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card text-center card-shadow on-hover border-0 mb-4">
+          <div class="card-body font-14">
+            <h5 class="mt-3 mb-1 font-weight-medium">Séjour</h5>
+            <h6 class="subtitle font-weight-normal">Du {{trip.tripStartDate}} </h6>
+            <h6 class="subtitle font-weight-normal">Au {{trip.tripEndDate}} </h6>
+            <ul class="list-inline">
+              <li class="d-block py-2">Info : </li>
+              <li class="d-block py-2">Professeur : </li>
+              <li class="d-block py-2">Nb Classe : </li>
+              <li class="d-block py-2">Theme : </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Column -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card text-center card-shadow on-hover border-0 mb-4">
+          <div class="card-body font-14">
+            <h5 class="mt-3 mb-1 font-weight-medium">Client : {{client.clientWording}}</h5>
+            <ul class="list-inline">
+              <li class="d-block py-2">Email : {{client.clientMail}}</li>
+              <li class="d-block py-2">Tél : {{client.clientPhone}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Column -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card text-center card-shadow on-hover border-0 mb-4">
+          <div class="card-body font-14">
+            <h5 class="mt-3 mb-1 font-weight-medium">Centre : {{center.centerName}}</h5>
+            <ul class="list-inline">
+              <li class="d-block py-2" ><img src="{{center.centerPicture}}" style="max-width: 180px;" alt="centerPicture"> </li>
+              <li class="d-block py-2">Email : {{center.centerMail}}</li>
+              <li class="d-block py-2">Tél : {{center.centerPhone}}</li>
+              <li class="d-block py-2">Info : {{center.centerComment}}</li>
+              <li class="d-block py-2">Adresse : </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="card text-center card-shadow on-hover border-0 mb-4">
+          <div class="card-body font-14">
+          <h5 class="mt-3 mb-1 font-weight-medium">Equipe d'Animation</h5>
+          <ul class="list-inline" *ngFor="let info of information" >
+            <li class="d-block py-2"> {{info.userLastname}} {{info.nameUser}}</li>
+            <li class="d-block py-2"> {{info.postName}}</li>
+            <li class="d-block py-2"> {{info.postName}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
