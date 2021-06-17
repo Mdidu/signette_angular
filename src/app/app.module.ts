@@ -26,7 +26,7 @@ import { UserComponent } from './component/user/user.component';
 import { UpdateUserComponent } from './component/user/update-user/update-user.component';
 import { TripByClientComponent } from './component/client/trip-by-client/trip-by-client.component';
 import { ChartjsComponent } from './component/chart/bar/chartjs.component';
-import {ChartsModule} from "ng2-charts";
+import { ChartsModule } from "ng2-charts";
 
 @NgModule({
   declarations: [
