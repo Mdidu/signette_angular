@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../../service/client.service";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-trip-by-client',
@@ -13,7 +14,7 @@ export class TripByClientComponent implements OnInit {
   trips:any;
   client:any;
 
-  constructor(private route:ActivatedRoute, private clientService:ClientService) { }
+  constructor(private route:ActivatedRoute, private clientService:ClientService, private location: Location) { }
 
   ngOnInit(): void {
     this.recupData();
@@ -33,5 +34,9 @@ export class TripByClientComponent implements OnInit {
         console.log("error = " + error.message);
       }
     );
+  }
+
+  backClicked(){
+    this.location.back();
   }
 }
