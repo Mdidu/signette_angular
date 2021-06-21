@@ -12,6 +12,8 @@ import {Trip} from "../../model/trip/trip";
 export class TripComponent implements OnInit {
 
   trips: any[];
+  idTrip: number;
+  charged: boolean = false;
 
   constructor(private formBuilder: FormBuilder, public tripService: TripService,  private router: Router) {
   }
@@ -20,7 +22,7 @@ export class TripComponent implements OnInit {
     this.displayTrip();
   }
 
-  displayTrip() {
+  displayTrip = () =>{
     this.tripService.findAll().subscribe(
       (trips) => {
         this.trips = trips;
@@ -40,9 +42,13 @@ export class TripComponent implements OnInit {
       }, 1000);
   }
   updateTrip(id: number){
-    this.router.navigate(['/trip/update/', id]);
+    this.charged = true;
+    this.idTrip = id;
+
+    //this.router.navigate(['/trip/update/', id]);
   }
   detailTrip(id: number){
     this.router.navigate(['/trip/', id]);
   }
+
 }

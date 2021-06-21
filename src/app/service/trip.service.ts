@@ -14,7 +14,7 @@ export class TripService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  public findById(id: string | null) {
+  public findById(id: number | null) {
     return this.http.get<any>(baseUrl + '/read/' + id)
       .map((res: any) => {
         return res;
