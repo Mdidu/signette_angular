@@ -7,18 +7,18 @@
         <div class="card text-center card-shadow on-hover border-0 mb-4">
           <div class="card-body font-14">
             <h5 class="mt-3 mb-1 font-weight-medium">Séjour</h5>
-            <h6 class="subtitle font-weight-normal">Du {{trip.tripStartDate}} Au {{trip.tripEndDate}}</h6>
+            <h6 class="subtitle font-weight-normal">Du {{trip.tripStartDate}} </h6>
+            <h6 class="subtitle font-weight-normal">Au {{trip.tripEndDate}} </h6>
             <ul class="list-inline">
-              <li class="d-block py-2">Perfect of Small Team</li>
-              <li class="d-block py-2">Unlimited Invoices</li>
-              <li class="d-block py-2">Project Management</li>
+              <li class="d-block py-2">Info : </li>
+              <li class="d-block py-2">Professeur : </li>
+              <li class="d-block py-2">Nb Classe : </li>
+              <li class="d-block py-2">Theme : </li>
             </ul>
-            <div class="bottom-btn">
-              <a class="btn btn-success-gradiant btn-md text-white btn-block" href="#f1"><span>Choose Plan</span></a>
-            </div>
           </div>
         </div>
       </div>
+      <!-- Column -->
       <div class="col-lg-3 col-md-6">
         <div class="card text-center card-shadow on-hover border-0 mb-4">
           <div class="card-body font-14">
@@ -26,50 +26,36 @@
             <ul class="list-inline">
               <li class="d-block py-2">Email : {{client.clientMail}}</li>
               <li class="d-block py-2">Tél : {{client.clientPhone}}</li>
-              <li class="d-block py-2">{{client.address.addressNumber}} {{client.address.addressStreet}} -
-                {{client.address.addressCountry}} - {{client.address.addressCity}}</li>
             </ul>
-            <div class="bottom-btn">
-              <a class="btn btn-success-gradiant btn-md text-white btn-block" href="#f1"><span>Details</span></a>
-            </div>
           </div>
         </div>
       </div>
+      <!-- Column -->
       <div class="col-lg-3 col-md-6">
         <div class="card text-center card-shadow on-hover border-0 mb-4">
           <div class="card-body font-14">
             <h5 class="mt-3 mb-1 font-weight-medium">Centre : {{center.centerName}}</h5>
             <ul class="list-inline">
-              <li class="d-block py-2"><img src="{{center.centerPicture}}" alt="centerPicture"> </li>
+              <li class="d-block py-2" ><img src="{{center.centerPicture}}" style="max-width: 180px;" alt="centerPicture"> </li>
               <li class="d-block py-2">Email : {{center.centerMail}}</li>
               <li class="d-block py-2">Tél : {{center.centerPhone}}</li>
-              <li class="d-block py-2">Comment{{center.centerComment}}</li>
+              <li class="d-block py-2">Info : {{center.centerComment}}</li>
+              <li class="d-block py-2">Adresse : </li>
             </ul>
-            <div class="bottom-btn">
-              <a class="btn btn-success-gradiant btn-md text-white btn-block" href="#f1"><span>Choose Plan</span></a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    {{posts[0].postPK.tripId}}
-    <!--
-    <div class="col-lg-3 col-md-6">
-      <div class="card text-center card-shadow on-hover border-0 mb-4">
-        <div class="card-body font-14">
+      <div class="col-lg-3 col-md-6">
+        <div class="card text-center card-shadow on-hover border-0 mb-4">
+          <div class="card-body font-14">
           <h5 class="mt-3 mb-1 font-weight-medium">Equipe d'Animation</h5>
-          <ul class="list-inline" *ngFor="let post of posts">
-            <li class="d-block py-2">{{userLastname}} {{userName}} : {{post.postType.name}}</li>
-            <li class="d-block py-2"> </li>
-            <li class="d-block py-2"> </li>
-            <li class="d-block py-2"> </li>
+          <ul class="list-inline" *ngFor="let info of information" >
+            <li class="d-block py-2"> {{info.userLastname}} {{info.nameUser}}</li>
+            <li class="d-block py-2"> {{info.postName}}</li>
+            <li class="d-block py-2"> {{info.postName}}</li>
           </ul>
-          <div class="bottom-btn">
-            <a class="btn btn-success-gradiant btn-md text-white btn-block" href="#f1"><span>Choose Plan</span></a>
-          </div>
         </div>
       </div>
     </div>
-            -->
   </div>
 </div>

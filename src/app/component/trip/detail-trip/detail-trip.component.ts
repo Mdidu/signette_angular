@@ -5,6 +5,9 @@ import {Trip} from "../../../model/trip/trip";
 import {Client} from "../../../model/client/client";
 import {Center} from "../../../model/center/center";
 import {PostService} from "../../../service/post.service";
+import {UserService} from "../../../service/user.service";
+import {User} from "../../../model/user/user";
+import {Post} from "../../../model/post/post";
 
 @Component({
   selector: 'app-detail-trip',
@@ -17,11 +20,10 @@ export class DetailTripComponent implements OnInit {
   tripId: any;
   client: Client;
   center: Center;
-  users: any[];
-  posts: any[];
+  information: any[]; // reçois ex :[{"tripId":12,"userId":2,"postId":4,"postName":"Coordinateur Détaché","nameUser":"Eric","userLastname":"Tomsick"}]
 
 
-  constructor( public tripService: TripService, public postService: PostService, private route: ActivatedRoute) { }
+  constructor( public tripService: TripService, public postService: PostService, public userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.recupData()
@@ -40,16 +42,15 @@ export class DetailTripComponent implements OnInit {
       }
     );
     this.postService.findByTrip(this.tripId).subscribe(
-      (posts) => {
-        this.posts = posts;
-        console.log(posts[0]);
+      (information) => {
+        this.information = information;
       },
       (error) => {
         console.log('error = ' + error.message);
       }
     );
-
+  }
+  updatePost(tripId: number) {
 
   }
-
 }
