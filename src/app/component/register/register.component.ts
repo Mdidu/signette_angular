@@ -2,9 +2,9 @@ import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../model/user/user";
 import {UserService} from "../../service/user.service";
-import {RoleService} from "../../service/role.service";
 import {Adresse} from "../../model/adresse/adresse";
 import {AddressService} from "../../service/address.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -12,25 +12,24 @@ import {AddressService} from "../../service/address.service";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
   addUserForm: FormGroup;
   user: User;
   address: Adresse;
-  roles: any;
+  roleId: any;
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
-              private roleService: RoleService,
-              private addressService: AddressService) { }
+              private addressService: AddressService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.recupRole();
     setTimeout(() => {
       this.form();
-
-    }, 2000);
+    }, 1000);
   }
 
   form() {
@@ -44,7 +43,6 @@ export class RegisterComponent implements OnInit {
         userNss: ['', Validators.required],
         userPhone: ['', Validators.required],
         userUsername: ['', Validators.required],
-        roleId: ['', Validators.required],
       addressGroup: this.formBuilder.group({
         addressNumber: ['', Validators.required],
         addressStreet: ['', Validators.required],
@@ -52,17 +50,6 @@ export class RegisterComponent implements OnInit {
         addressCountry: ['', Validators.required]
       })
     });
-  }
-
-  recupRole() {
-    this.roles = this.roleService.findAll().subscribe(
-      (roles: any) => {
-        this.roles = roles;
-      },
-        (error: { message: string; }) => {
-          console.log("error = " + error.message);
-        }
-    );
   }
 
   addAddress(address: Adresse) {
@@ -74,6 +61,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     const data = this.addUserForm.value;
+    this.roleId =  this.route.snapshot.paramMap.get('id');
 
     this.address = {
       addressNumber: data.addressGroup.addressNumber,
@@ -96,7 +84,7 @@ export class RegisterComponent implements OnInit {
         userPhone: data.userPhone,
         userUsername: data.userUsername,
         addressId: this.address.addressId,
-        roleId: parseInt(data.roleId)
+        roleId: this.roleId
       }
 
       this.userService.add(this.user);

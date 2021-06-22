@@ -50,7 +50,5 @@ export class DetailTripComponent implements OnInit {
       }
     );
   }
-  updatePost(tripId: number) {
 
-  }
 }

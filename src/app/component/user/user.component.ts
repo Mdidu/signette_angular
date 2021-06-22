@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../service/user.service";
 
@@ -10,16 +10,24 @@ import {UserService} from "../../service/user.service";
 })
 export class UserComponent implements OnInit {
   searchUserLastnameForm: FormGroup;
+  roleId: any;
+  title: string;
   users: any[];
   idUser:number;
   charged: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, public userService: UserService, private router: Router) {
-    this.displayUser();
+
+  constructor(private formBuilder: FormBuilder,
+              public userService: UserService,
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.roleId = this.route.snapshot.paramMap.get('id');
+    this.title = (this.roleId === '1' ? "Animateurs": (this.roleId === '2' ? "Employees" : "Admins" ));
     this.form();
+    this.displayUser();
   }
 
   form() {
@@ -29,7 +37,7 @@ export class UserComponent implements OnInit {
   }
 
   displayUser() {
-    this.userService.findAll().subscribe(
+    this.userService.findByRoleId(this.roleId).subscribe(
       (users) => {
         this.users = users;
         console.log(this.users)
@@ -60,14 +68,17 @@ export class UserComponent implements OnInit {
 
   onSubmit() {
     const data = this.searchUserLastnameForm.value;
-
-    this.userService.findByLastname(data.userLastname).subscribe(
-      (users) => {
-        this.users = users;
-      },
-      (error) => {
-        console.log('errors=' + error.message);
-      }
-    );
+    if (data.userLastname !== '') {
+      this.userService.findByLastNameByRole(data.userLastname,this.roleId).subscribe(
+        (users) => {
+         this.users = users;
+       },
+       (error) => {
+         console.log('errors=' + error.message);
+       }
+     );
+   } else {
+      this.displayUser();
+    }
   }
 }

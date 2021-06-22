@@ -13,7 +13,7 @@
           Client
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownClient">
-          <a class="dropdown-item" [routerLink]="['client/list']">liste clients</a>
+          <a class="dropdown-item" [routerLink]="['client/list']">Liste clients</a>
           <a class="dropdown-item" [routerLink]="['client/add']">Ajouter Client</a>
         </div>
       </li>
@@ -22,7 +22,7 @@
           Center
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownCenter">
-          <a class="dropdown-item" [routerLink]="['center/list']">liste center</a>
+          <a class="dropdown-item" [routerLink]="['center/list']">Liste center</a>
           <a class="dropdown-item" [routerLink]="['center/add']">Ajouter center</a>
         </div>
       </li>
@@ -31,20 +31,41 @@
           Trip
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownTrip">
-          <a class="dropdown-item" [routerLink]="['trip/list']">liste trip</a>
+          <a class="dropdown-item" [routerLink]="['trip/list']">Liste trip</a>
           <a class="dropdown-item" [routerLink]="['trip/add']">Ajouter trip</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['user/list']" routerLinkActive="router-link-active" >User</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAnim" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Animateur
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownAnim">
+          <a class="dropdown-item" [routerLink]="['user/list',1]">liste des animateurs</a>
+          <a class="dropdown-item" [routerLink]="['/register', 1 ]">Ajouter anim</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEmp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Employee
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownEmp">
+          <a class="dropdown-item" [routerLink]="['emp/list',2]">Liste des employees</a>
+          <a class="dropdown-item" [routerLink]="['/register', 2 ]">Ajouter employee</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+          <a class="dropdown-item" [routerLink]="['admin/list/3']">Liste des admins</a>
+          <a class="dropdown-item" [routerLink]="['/register', 3 ]">Ajouter admin</a>
+        </div>
       </li>
 
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-      </li>
       <li class="nav-item">
         <a href="/login" class="nav-link" routerLink="login">Login</a>
       </li>

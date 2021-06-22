@@ -22,7 +22,7 @@ import {ChartjsComponent} from "./component/chart/bar/chartjs.component";
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'register/:id', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'client/list', component: ClientComponent},
   {path: 'client/add', component: AddClientComponent},
@@ -35,8 +35,9 @@ const routes: Routes = [
   {path: 'trip/add', component: AddTripComponent},
   {path: 'trip/update/:id', component: UpdateTripComponent},
   {path: 'trip/detail/:id', component: DetailTripComponent},
-  {path: 'user/list', component: UserComponent},
-  {path: 'user/update/:id', component: UpdateUserComponent},
+  {path: 'user/list/:id', component: UserComponent},
+  {path: 'emp/list/:id', component: UserComponent},
+  {path: 'admin/list/:id', component: UserComponent},
   {path: 'chart/:id', component: ChartjsComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];

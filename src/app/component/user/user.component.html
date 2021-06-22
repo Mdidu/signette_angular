@@ -1,25 +1,25 @@
-<h1 class="text-center">Gestion des employés</h1>
+<h1 class="text-center">Gestion des {{title}} </h1>
 <div class="col-md-12">
     <form class="form-signin" *ngIf="searchUserLastnameForm" [formGroup]="searchUserLastnameForm" (ngSubmit)="onSubmit()">
-      <label for="userLastname"></label>
-      <input type="text" formControlName="userLastname" class="form-control col-sm-10" id="userLastname" placeholder="Entrez le nom" />
-      <button type="submit" class="btn btn-primary" >Recherche :</button>
+      <label for="userLastname">Recherche :
+      <input type="text" formControlName="userLastname" class="form-control" id="userLastname" placeholder="Entrez le nom" />
+      <button type="submit" class="btn btn-primary" >Recherche</button></label>
     </form>
 </div>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th scope="col">userId</th>
-    <th scope="col">userName</th>
-    <th scope="col">userLastname</th>
-    <th scope="col">mail</th>
-    <th scope="col">userDateOfBirth</th>
-    <th scope="col">userEntryDate</th>
-    <th scope="col">userNss</th>
-    <th scope="col">userPhone</th>
-    <th scope="col">userUsername</th>
-    <th scope="col">address</th>
-    <th scope="col">role</th>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Lastname</th>
+    <th scope="col">Mail</th>
+    <th scope="col">DateOfBirth</th>
+    <th scope="col">EntryDate</th>
+    <th scope="col">Nss</th>
+    <th scope="col">Phone</th>
+    <th scope="col">Username</th>
+    <th scope="col">Address</th>
+    <th scope="col">Role</th>
     <th scope="col">Supprimer</th>
     <th scope="col">Modifier</th>
   </tr>
