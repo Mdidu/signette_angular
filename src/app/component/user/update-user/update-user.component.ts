@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../service/user.service";
@@ -17,11 +17,12 @@ export class UpdateUserComponent implements OnInit {
 
   updateUserForm: FormGroup;
   employee: Employee;
-  userId: any;
   roles:any;
   address:any;
   addressModel: Adresse;
   roleModel: Role;
+  @Input() userId: number;
+  @Input() displayUser:()=>void;
 
   constructor(private formBuilder: FormBuilder, private userService:UserService, private roleService:RoleService, private addressService:AddressService , private route:ActivatedRoute) { }
 
@@ -32,6 +33,13 @@ export class UpdateUserComponent implements OnInit {
     setTimeout(() => {
       this.form();
     }, 100);
+  }
+
+  ngOnChanges():void{
+    this.recupData();
+    setTimeout(() => {
+      this.form();
+    }, 1000);
   }
 
   form(){
@@ -58,7 +66,6 @@ export class UpdateUserComponent implements OnInit {
   }
 
   recupData() {
-    this.userId = this.route.snapshot.paramMap.get('id');
     this.userService.findById(this.userId).subscribe(
       (user) => {
         console.log(user);
@@ -146,5 +153,8 @@ export class UpdateUserComponent implements OnInit {
     setTimeout(() => {
       this.fillEmployeeModel(data);
     }, 1000);
+    setTimeout(()=>{
+      this.displayUser();
+    },2000)
   }
 }
