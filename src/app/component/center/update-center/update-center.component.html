@@ -1,61 +1,63 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card card-signing my-5">
-        <div class="card-body">
-          <h5 class="card-title text-center">Modifiez le centre</h5>
-          <form class="form-signing" *ngIf="updateCenterForm" [formGroup]="updateCenterForm" (ngSubmit)="onSubmit() ">
+<div class="modal fade" id="updateCenter" tabindex="-1" data-keyboard="false" data-backdrop="static" aria-labelledby="updateCenterLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="card-title text-center">Modifiez le centre</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="form-signing" *ngIf="updateCenterForm" [formGroup]="updateCenterForm" (ngSubmit)="onSubmit() ">
 
-            <div class="form-group">
-              <label for="centerPicture">Image URL:</label>
-              <input type="text" formControlName="centerPicture" class="form-control col-sm-10" id="centerPicture"
-                     placeholder="Url de l'image"/>
-            </div>
+          <div class="form-group">
+            <label for="centerPicture">Image URL:</label>
+            <input type="text" formControlName="centerPicture" class="form-control col-sm-10" id="centerPicture"
+                   placeholder="Url de l'image"/>
+          </div>
 
-            <div class="form-group">
-              <label for="centerName">Nom :</label>
-              <input type="text" formControlName="centerName" class="form-control col-sm-10" id="centerName"
-                     placeholder="Entrez Nom du Centre"/>
-            </div>
+          <div class="form-group">
+            <label for="centerName">Nom :</label>
+            <input type="text" formControlName="centerName" class="form-control col-sm-10" id="centerName"
+                   placeholder="Entrez Nom du Centre" />
+          </div>
 
-            <div class="form-group">
-              <label for="centerMail">Email :</label>
-              <input type="email" formControlName="centerMail" class="form-control col-sm-10" id="centerMail"
-                     placeholder="Entrez l'email"/>
-            </div>
+          <div class="form-group">
+            <label for="centerMail">Email :</label>
+            <input type="email" formControlName="centerMail" class="form-control col-sm-10" id="centerMail"
+                   placeholder="Entrez l'email"/>
+          </div>
 
-            <div class="form-group">
-              <label for="centerPhone">Téléphone :</label>
-              <input type="text" formControlName="centerPhone" class="form-control col-sm-10" id="centerPhone"
-                     placeholder="Entrez le numero de telephone "/>
-            </div>
+          <div class="form-group">
+            <label for="centerPhone">Téléphone :</label>
+            <input type="text" formControlName="centerPhone" class="form-control col-sm-10" id="centerPhone"
+                   placeholder="Entrez le numero de telephone "/>
+          </div>
 
-            <div class="form-group">
-              <label for="centerComment">Commentaire :</label>
-              <input type="text" formControlName="centerComment" class="form-control col-sm-10" id="centerComment"
-                     placeholder="Entrez un commentaire"/>
-            </div>
+          <div class="form-group">
+            <label for="centerComment">Commentaire :</label>
+            <input type="text" formControlName="centerComment" class="form-control col-sm-10" id="centerComment"
+                   placeholder="Entrez un commentaire"/>
+          </div>
 
-              <div class="form-group" formGroupName="address">
-                <label for="addressNumber">Numéro de rue <span class="text-danger">*</span> :</label>
-                <input type="text" formControlName="addressNumber" class="form-control col-sm-10" id="addressNumber"/>
+          <div class="form-group" formGroupName="address">
+            <label for="addressNumber">Numéro de rue <span class="text-danger">*</span> :</label>
+            <input type="number" formControlName="addressNumber" class="form-control col-sm-10" id="addressNumber"/>
 
-                <label for="addressStreet">Rue <span class="text-danger">*</span> :</label>
-                <input type="text" formControlName="addressStreet" class="form-control col-sm-10" id="addressStreet"
-                       placeholder="Entrez le nom de la rue"/>
+            <label for="addressStreet">Rue <span class="text-danger">*</span> :</label>
+            <input type="text" formControlName="addressStreet" class="form-control col-sm-10" id="addressStreet"
+                   placeholder="Entrez le nom de la rue"/>
 
-                <label for="addressCity">Ville <span class="text-danger">*</span> :</label>
-                <input type="text" formControlName="addressCity" class="form-control col-sm-10" id="addressCity"
-                       placeholder="Entrez la ville"/>
+            <label for="addressCity">Ville <span class="text-danger">*</span> :</label>
+            <input type="text" formControlName="addressCity" class="form-control col-sm-10" id="addressCity"
+                   placeholder="Entrez la ville"/>
 
-                <label for="addressCountry">Pays <span class="text-danger">*</span> :</label>
-                <input type="text" formControlName="addressCountry" class="form-control col-sm-10" id="addressCountry"
-                       placeholder="Entrez le pays de résidence"/>
-              </div>
+            <label for="addressCountry">Pays <span class="text-danger">*</span> :</label>
+            <input type="text" formControlName="addressCountry" class="form-control col-sm-10" id="addressCountry"
+                   placeholder="Entrez le pays de résidence"/>
+          </div>
 
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-          </form>
-        </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
       </div>
     </div>
   </div>

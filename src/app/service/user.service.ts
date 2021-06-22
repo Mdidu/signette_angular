@@ -16,7 +16,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  public findById(id: string|null) {
+  public findById(id: number) {
     return this.http.get<any>(baseUrl + 'user/read/' + id)
       .map((res:any)=>{
         return res;

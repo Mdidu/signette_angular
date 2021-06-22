@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CenterService} from "../../../service/center.service";
 import {ActivatedRoute} from "@angular/router";
@@ -11,20 +11,33 @@ import {AddressService} from "../../../service/address.service";
 })
 export class UpdateCenterComponent implements OnInit {
 
+  @Input() centerId: number;
   updateCenterForm: FormGroup;
   center: any;
   address : any;
-  centerid: any;
+  @Input() displayCenter: () => void;
 
   constructor(private formBuilder: FormBuilder, public centerService: CenterService, public addressService: AddressService, private route: ActivatedRoute) {
   }
+
   ngOnInit(): void {
     this.recupData();
     setTimeout(() => {
       this.form();
-    }, 2000);
+    }, 1000);
   }
+
+  ngOnChanges(): void {
+
+      this.recupData();
+
+      setTimeout(() => {
+        this.form();
+      }, 1000);
+  }
+
   form() {
+
     this.updateCenterForm = this.formBuilder.group({
           centerPicture: [this.center.centerPicture, Validators.required],
           centerName: [this.center.centerName, Validators.required],
@@ -42,8 +55,8 @@ export class UpdateCenterComponent implements OnInit {
   }
 
   recupData() {
-    this.centerid = this.route.snapshot.paramMap.get('id');
-    this.centerService.findById(this.centerid).subscribe(
+
+    this.centerService.findById(this.centerId).subscribe(
       (center) => {
         this.center = center;
       },
@@ -55,6 +68,7 @@ export class UpdateCenterComponent implements OnInit {
 
   onSubmit() {
     const data = this.updateCenterForm.value;
+
     this.address = {
       addressId: data.address.addressId,
       addressNumber: data.address.addressNumber,
@@ -62,7 +76,7 @@ export class UpdateCenterComponent implements OnInit {
       addressCity: data.address.addressCity,
       addressCountry: data.address.addressCountry
     }
-    console.log("OnSubmit"+this.address.addressId);
+
     this.addressService.update(this.address.addressId , this.address);
 
     setTimeout(() => {
@@ -74,9 +88,11 @@ export class UpdateCenterComponent implements OnInit {
         centerComment: data.centerComment,
         address: this.address
       }
-      this.centerService.update(this.centerid, this.center);
+      this.centerService.update(this.centerId, this.center);
     }, 1000);
-}
-}
 
-
+    setTimeout(() => {
+      this.displayCenter();
+    }, 2000);
+  }
+}
