@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../../service/client.service";
@@ -18,7 +18,8 @@ export class UpdateClientComponent implements OnInit {
   clt:Client;
   address:any;
   clientId: any;
-
+  @Input() parentClientId: number;
+  @Input() displayClient: () => void;
 
   constructor(private formBuilder: FormBuilder, public clientService: ClientService,private adresseService: AddressService,private route: ActivatedRoute) {
   }
@@ -28,9 +29,15 @@ export class UpdateClientComponent implements OnInit {
 
     setTimeout(() => {
       this.form();
-
     }, 1000);
+  }
 
+  ngOnChanges(): void {
+    this.recupData();
+
+    setTimeout(() => {
+      this.form();
+    }, 1000);
   }
 
   form() {
@@ -39,7 +46,6 @@ export class UpdateClientComponent implements OnInit {
       clientWording: [this.client.clientWording, Validators.required],
       clientMail: [this.client.clientMail, [Validators.required, Validators.email]],
       clientPhone: [this.client.clientPhone, [Validators.required, Validators.pattern('[0-9]{10}')]],
-
       address: this.formBuilder.group({
         addressId: [this.client.address.addressId, Validators.required],
         addressNumber: [this.client.address.addressNumber, Validators.required],
@@ -51,8 +57,8 @@ export class UpdateClientComponent implements OnInit {
   }
 
   recupData() {
-    this.clientId = this.route.snapshot.paramMap.get('id');
-    this.clientId = this.clientService.findById(this.clientId).subscribe(
+
+    this.clientService.findById(this.parentClientId).subscribe(
       (client) => {
         this.client = client;
       },
@@ -64,7 +70,7 @@ export class UpdateClientComponent implements OnInit {
 
   onSubmit() {
     const data = this.updateClientForm.value;
-    console.log(data.address)
+
     this.address  = {
       addressId: data.address.addressId,
       addressNumber: data.address.addressNumber,
@@ -80,10 +86,12 @@ export class UpdateClientComponent implements OnInit {
       clientPhone: data.clientPhone,
       address: this.address
     }
-    console.log(this.clt)
-    this.adresseService.update(this.address.addressId,this.address);
+
+    this.adresseService.update(this.address.addressId, this.address);
     this.clientService.update(this.clt);
+
+    setTimeout(() => {
+      this.displayClient();
+    }, 1000);
   }
-
-
 }
