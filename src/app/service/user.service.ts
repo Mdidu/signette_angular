@@ -23,6 +23,13 @@ export class UserService {
       });
   }
 
+  public findByRoleId(id: string|null) {
+    return this.http.get<any>(baseUrl + 'user/readByRole/' + id)
+      .map((res:any)=>{
+        return res;
+      });
+  }
+
   public findByLastname(lastname: string) {
     return this.http.get<any>(baseUrl + 'user/read/lastname/' + lastname)
       .map(res => {

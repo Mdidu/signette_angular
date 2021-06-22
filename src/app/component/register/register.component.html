@@ -37,12 +37,6 @@
           <label for="userUsername">Pseudo <span class="text-danger">*</span> :</label>
           <input type="text" formControlName="userUsername" class="form-control col-sm-10" id="userUsername" placeholder="Entrez le pseudo" />
         </div>
-        <div class="form-group">
-          <label class="mr-sm-2" for="roleId">Choisir un Role <span class="text-danger">*</span> :</label>
-          <select formControlName="roleId" id="roleId" class="custom-select mr-sm-2">
-          <option *ngFor="let role of roles" value="{{role.roleId}}">{{role.roleType}}</option>
-        </select>
-      </div>
 
       <fieldset formGroupName="addressGroup" >
         <div class="form-group">

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../service/user.service";
 
@@ -11,8 +11,9 @@ import {UserService} from "../../service/user.service";
 export class UserComponent implements OnInit {
   searchUserLastnameForm: FormGroup;
   users: any;
+  roleId: any;
 
-  constructor(private formBuilder: FormBuilder, public userService: UserService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, public userService: UserService, private router: Router, private route: ActivatedRoute) {
     this.displayUser();
   }
 
@@ -27,7 +28,8 @@ export class UserComponent implements OnInit {
   }
 
   displayUser() {
-    this.users = this.userService.findAll().subscribe(
+    this.roleId = this.route.snapshot.paramMap.get('id');
+    this.users = this.userService.findByRoleId(this.roleId).subscribe(
       (users) => {
         this.users = users;
         console.log(this.users)
