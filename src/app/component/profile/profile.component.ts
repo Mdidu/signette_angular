@@ -20,9 +20,6 @@ export class ProfileComponent implements OnInit {
           this.currentUser = user;
         }
       );
-      setTimeout(() => {
-        console.log(this.currentUser);
-      }, 1000);
     }, 500);
   }
 }
