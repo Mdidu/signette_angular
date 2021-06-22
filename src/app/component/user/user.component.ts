@@ -12,13 +12,19 @@ export class UserComponent implements OnInit {
   searchUserLastnameForm: FormGroup;
   users: any;
   roleId: any;
+  title: string;
 
-  constructor(private formBuilder: FormBuilder, public userService: UserService, private router: Router, private route: ActivatedRoute) {
-    this.displayUser();
+  constructor(private formBuilder: FormBuilder,
+              public userService: UserService,
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.roleId = this.route.snapshot.paramMap.get('id');
+    this.title = (this.roleId === '1' ? "Animateurs": (this.roleId === '2' ? "Employees" : "Admins" ));
     this.form();
+    this.displayUser();
   }
 
   form() {
@@ -28,7 +34,6 @@ export class UserComponent implements OnInit {
   }
 
   displayUser() {
-    this.roleId = this.route.snapshot.paramMap.get('id');
     this.users = this.userService.findByRoleId(this.roleId).subscribe(
       (users) => {
         this.users = users;
@@ -55,14 +60,17 @@ export class UserComponent implements OnInit {
 
   onSubmit() {
     const data = this.searchUserLastnameForm.value;
-
-    this.userService.findByLastname(data.userLastname).subscribe(
-      (users) => {
-        this.users = users;
-      },
-      (error) => {
-        console.log('errors=' + error.message);
-      }
-    );
+    if (data.userLastname !== '') {
+      this.userService.findByLastNameByRole(data.userLastname,this.roleId).subscribe(
+        (users) => {
+         this.users = users;
+       },
+       (error) => {
+         console.log('errors=' + error.message);
+       }
+     );
+   } else {
+      this.displayUser();
+    }
   }
 }

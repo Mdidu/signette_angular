@@ -36,6 +36,12 @@ export class UserService {
         return res;
       });
   }
+  public findByLastNameByRole(lastname: string, id: string) {
+    return this.http.get<any>(baseUrl + 'user/readBylastname/' + lastname+ '/AndByRole/'+ id)
+      .map(res => {
+        return res;
+      });
+  }
 
   public findAll():Observable<User[]> {
     return this.http.get<any>(baseUrl + 'user/read')

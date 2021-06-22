@@ -36,6 +36,8 @@ const routes: Routes = [
   {path: 'trip/update/:id', component: UpdateTripComponent},
   {path: 'trip/detail/:id', component: DetailTripComponent},
   {path: 'user/list/:id', component: UserComponent},
+  {path: 'emp/list/:id', component: UserComponent},
+  {path: 'admin/list/:id', component: UserComponent},
   {path: 'chart/:id', component: ChartjsComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];

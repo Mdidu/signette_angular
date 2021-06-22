@@ -1,9 +1,9 @@
-<h1 class="text-center">Gestion des employés</h1>
+<h1 class="text-center">Gestion des {{title}} </h1>
 <div class="col-md-12">
     <form class="form-signin" *ngIf="searchUserLastnameForm" [formGroup]="searchUserLastnameForm" (ngSubmit)="onSubmit()">
-      <label for="userLastname"></label>
-      <input type="text" formControlName="userLastname" class="form-control col-sm-10" id="userLastname" placeholder="Entrez le nom" />
-      <button type="submit" class="btn btn-primary" >Recherche :</button>
+      <label for="userLastname">Recherche :
+      <input type="text" formControlName="userLastname" class="form-control" id="userLastname" placeholder="Entrez le nom" />
+      <button type="submit" class="btn btn-primary" >Recherche</button></label>
     </form>
 </div>
 <table class="table table-striped">
