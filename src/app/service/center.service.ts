@@ -14,7 +14,7 @@ export class CenterService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  public findById(id: string | null) {
+  public findById(id: number) {
     return this.http.get<any>(baseUrl + '/read/' + id)
       .map((res: any) => {
         return res;

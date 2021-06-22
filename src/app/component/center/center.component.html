@@ -34,8 +34,12 @@
       <button (click)="onRemoveCenter(center.centerId)" class="btn btn-primary">Supprimer</button>
     </td>
     <td>
-      <button (click)="updateCenter(center.centerId)" class="btn btn-primary">Modifier</button>
+      <button type="button" (click)="updateCenter(center.centerId)" class="btn btn-primary" data-toggle="modal" data-target="#updateCenter">
+        Modifier
+      </button>
     </td>
   </tr>
   </tbody>
 </table>
+
+<app-update-center *ngIf="charged" [centerId]="id" [displayCenter]="displayCenter"></app-update-center>
