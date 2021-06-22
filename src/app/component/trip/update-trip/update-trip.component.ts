@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {TripService} from "../../../service/trip.service";
@@ -20,7 +20,9 @@ export class UpdateTripComponent implements OnInit {
   center: Center;
   clients: Client[];
   client: Client;
-  tripId: any;
+  @Input() tripId: number;
+  @Input() displayTrip:()=>void;
+
 
   constructor(private formBuilder: FormBuilder, public tripService: TripService, public clientService: ClientService, public centerService: CenterService, private route: ActivatedRoute) {
   }
@@ -31,9 +33,18 @@ export class UpdateTripComponent implements OnInit {
     this.recupDataCenters();
     setTimeout(() => {
       this.form();
+      console.log(this.updateTripForm)
     }, 1000);
 
   }
+
+  ngOnChanges():void{
+    this.recupData();
+    setTimeout(() => {
+      this.form();
+    }, 1000);
+  }
+
 
   form() {
     this.updateTripForm = this.formBuilder.group({
@@ -49,7 +60,6 @@ export class UpdateTripComponent implements OnInit {
   }
 
   recupData() {
-    this.tripId = this.route.snapshot.paramMap.get('id');
     this.trip = this.tripService.findById(this.tripId).subscribe(
       (trip) => {
         this.trip = trip;
@@ -100,5 +110,9 @@ export class UpdateTripComponent implements OnInit {
       }
       this.tripService.update(this.tripId, this.trip);
     }, 1000);
+    setTimeout(()=>{
+      this.displayTrip();
+
+      },2000)
   }
 }
