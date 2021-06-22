@@ -34,7 +34,9 @@
       <button (click)="onRemoveClient(client.clientId)" class="btn btn-danger">Supprimer</button>
     </td>
     <td>
-      <a (click)="updateClient(client.clientId)" class="btn btn-primary">Modifier</a>
+      <button type="button" (click)="updateClient(client.clientId)" class="btn btn-primary" data-toggle="modal" data-target="#updateClient">
+        Modifier
+      </button>
     </td>
     <td>
       <a (click)="searchSejours(client.clientId)" class="btn btn-primary">Voir séjours</a>
@@ -42,3 +44,4 @@
   </tr>
   </tbody>
 </table>
+<app-update-client *ngIf="charged" [parentClientId]="id" [displayClient]="displayClient"></app-update-client>

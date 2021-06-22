@@ -11,12 +11,12 @@ import {ClientService} from "../../service/client.service";
 })
 export class ClientComponent implements OnInit {
 
-
+  charged: boolean = false;
+  id: number;
   clients: any;
   clientName:FormGroup;
 
   constructor(private formBuilder: FormBuilder, public clientService: ClientService, private router: Router) {
-
   }
 
   ngOnInit(): void {
@@ -30,8 +30,8 @@ export class ClientComponent implements OnInit {
     })
   }
 
-  displayClient() {
-    this.clients = this.clientService.findAll().subscribe(
+  displayClient = () => {
+    this.clientService.findAll().subscribe(
       (clients) => {
         console.log(clients.toString());
         this.clients = clients;
@@ -52,7 +52,8 @@ export class ClientComponent implements OnInit {
   }
 
   updateClient(id: number) {
-    this.router.navigate(['/client/update/', id]);
+    this.id = id;
+    this.charged = true;
   }
 
   searchClient(){

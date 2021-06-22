@@ -96,5 +96,3 @@ export class UpdateCenterComponent implements OnInit {
     }, 2000);
   }
 }
-
-
