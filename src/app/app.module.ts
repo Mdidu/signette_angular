@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {ClientComponent} from './component/client/client.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from './app-routing.module';
@@ -28,6 +28,7 @@ import { TripByClientComponent } from './component/client/trip-by-client/trip-by
 import { ChartjsComponent } from './component/chart/bar/chartjs.component';
 import {ChartsModule} from "ng2-charts";
 import {NavbarComponent} from "./component/navbar/navbar.component";
+import { AddPostComponent } from './component/trip/post/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {NavbarComponent} from "./component/navbar/navbar.component";
     UpdateUserComponent,
     TripByClientComponent,
     ChartjsComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,

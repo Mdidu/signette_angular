@@ -38,10 +38,10 @@ export class AddTripComponent implements OnInit {
 
   recupData() {
       this.clientService.findAll().subscribe(
-      (clients) => {
+          (clients: Client[]) => {
         this.clients = clients;
       },
-      (error) => {
+      (error: { message: string; }) => {
         console.log('error = ' + error.message);
       }
     );

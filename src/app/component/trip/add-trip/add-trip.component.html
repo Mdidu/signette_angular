@@ -7,12 +7,12 @@
           <form class="form-signing" [formGroup]="addTripForm" (ngSubmit)="onSubmit()">
 
             <label for="clientId">Client :</label>
-            <select formControlName="clientId" class="form-control col-sm-10" id="clientId" placeholder="Selectionnez un client" >
+            <select formControlName="clientId" class="form-control col-sm-10" id="clientId"  >
               <option *ngFor="let client of clients" value="{{client.clientId}}">{{client.clientWording}}</option>
             </select>
 
             <label for="centerid">Center :</label>
-            <select formControlName="centerId" class="form-control col-sm-10" id="centerid" placeholder="Selectionnez un centre" >
+            <select formControlName="centerId" class="form-control col-sm-10" id="centerid"  >
               <option *ngFor="let center of centers" value="{{center.centerId}}">{{center.centerName}}</option>
             </select>
 
