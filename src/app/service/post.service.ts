@@ -24,4 +24,18 @@ export class PostService {
       })
   }
 
+  public findByDateAndUserId(id: number) {
+
+    return this.http.get<any>(baseUrl + "/readDate/id/" + id)
+      .map((res: any) => {
+        return res;
+      });
+  }
+
+  public findByPost(id: number) {
+    return this.http.get<any>(baseUrl + "/readByPost/" + id)
+      .map((res: any) => {
+        return res;
+      });
+  }
 }
