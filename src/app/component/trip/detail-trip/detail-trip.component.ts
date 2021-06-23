@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {TripService} from "../../../service/trip.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Trip} from "../../../model/trip/trip";
@@ -17,9 +17,10 @@ import {Post} from "../../../model/post/post";
 export class DetailTripComponent implements OnInit {
 
   trip: Trip;
-  tripId: any;
+  @Output() tripId: number;
   client: Client;
   center: Center;
+  addPostClicked: boolean = false;
   information: any[]; // reçois ex :[{"tripId":12,"userId":2,"postId":4,"postName":"Coordinateur Détaché","nameUser":"Eric","userLastname":"Tomsick"}]
 
 
@@ -30,7 +31,7 @@ export class DetailTripComponent implements OnInit {
   }
 
   recupData() {
-    this.tripId = this.route.snapshot.paramMap.get('id');
+    this.tripId = parseInt(<string>this.route.snapshot.paramMap.get('id'));
     this.tripService.findById(this.tripId).subscribe(
       (trip) => {
         this.trip = trip;
@@ -51,4 +52,8 @@ export class DetailTripComponent implements OnInit {
     );
   }
 
+  addPost(tripId: number) {
+    this.addPostClicked = true;
+    this.tripId = tripId;
+  }
 }
