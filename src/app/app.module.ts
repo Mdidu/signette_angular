@@ -28,6 +28,7 @@ import { TripByClientComponent } from './component/client/trip-by-client/trip-by
 import { ChartjsComponent } from './component/chart/bar/chartjs.component';
 import {ChartsModule} from "ng2-charts";
 import {NavbarComponent} from "./component/navbar/navbar.component";
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {NavbarComponent} from "./component/navbar/navbar.component";
     UpdateUserComponent,
     TripByClientComponent,
     ChartjsComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
