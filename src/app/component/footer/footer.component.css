@@ -1,0 +1,42 @@
+.portfolio-cat a:hover, .footer -menu li a:hover {
+  text-decoration: none;
+  color: #1F1F1F;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
+  color: #4D4D4D;
+  margin-bottom: 13px;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footer .copy-right_text {
+  padding-bottom: 30px;
+  background: #07689F;
+}
+
+.footer .copy-right_text .footer_border {
+  padding-bottom: 30px;
+}
+
+.footer .copy-right_text .copy_right {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .footer .copy-right_text .copy_right {
+    font-size: 14px;
+  }
+}
