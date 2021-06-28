@@ -1,29 +1,40 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
       <div class="card card-signing my-5">
         <div class="card-body">
           <h5 class="card-title text-center">Modifiez le trip</h5>
           <form class="form-signing" [formGroup]="addTripForm" (ngSubmit)="onSubmit()">
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3" for="clientId">Client :</label>
+                <select formControlName="clientId" class="form-control col-sm-10" id="clientId" placeholder="Selectionnez un client" >
+                  <option *ngFor="let client of clients" value="{{client.clientId}}">{{client.clientWording}}</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3" for="centerid">Center :</label>
+                <select formControlName="centerId" class="form-control col-sm-10" id="centerid" placeholder="Selectionnez un centre" >
+                  <option *ngFor="let center of centers" value="{{center.centerId}}">{{center.centerName}}</option>
+                </select>
+              </div>
+            </div>
 
-            <label for="clientId">Client :</label>
-            <select formControlName="clientId" class="form-control col-sm-10" id="clientId"  >
-              <option *ngFor="let client of clients" value="{{client.clientId}}">{{client.clientWording}}</option>
-            </select>
-
-            <label for="centerid">Center :</label>
-            <select formControlName="centerId" class="form-control col-sm-10" id="centerid"  >
-              <option *ngFor="let center of centers" value="{{center.centerId}}">{{center.centerName}}</option>
-            </select>
-
-            <label for="tripStartDate">Date de Debut :</label>
-            <input type="date" formControlName="tripStartDate" class="form-control col-sm-10" id="tripStartDate" placeholder="Entrez la date de debut" />
-
-
-            <label for="tripEndDate">Date de Fin :</label>
-            <input type="date" formControlName="tripEndDate" class="form-control col-sm-10" id="tripEndDate" placeholder="Entrez la date de fin " />
-
-            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3" for="tripStartDate">Date de Debut :</label>
+                <input type="date" formControlName="tripStartDate" class="form-control col-sm-10" id="tripStartDate" placeholder="Entrez la date de debut" />
+              </div>
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3" for="tripEndDate">Date de Fin :</label>
+                <input type="date" formControlName="tripEndDate" class="form-control col-sm-10" id="tripEndDate" placeholder="Entrez la date de fin " />
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="form-group col-sm-6">
+                <button type="submit" class="btn-block btn-info">Envoyer</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
