@@ -28,9 +28,7 @@ import { TripByClientComponent } from './component/client/trip-by-client/trip-by
 import { ChartjsComponent } from './component/chart/bar/chartjs.component';
 import {ChartsModule} from "ng2-charts";
 import {NavbarComponent} from "./component/navbar/navbar.component";
-import { FooterComponent } from './component/footer/footer.component';
 import { AddPostComponent } from './component/trip/post/add-post/add-post.component';
-
 
 @NgModule({
   declarations: [
@@ -55,9 +53,7 @@ import { AddPostComponent } from './component/trip/post/add-post/add-post.compon
     TripByClientComponent,
     ChartjsComponent,
     NavbarComponent,
-    FooterComponent,
     AddPostComponent
-
   ],
   imports: [
     BrowserModule,
