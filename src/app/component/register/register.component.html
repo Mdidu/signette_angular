@@ -1,87 +1,64 @@
-<div class="container-fluid px-1 py-5 mx-auto">
-  <div class="row d-flex justify-content-center">
-    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-      <div class="card card-signing my-5">
-        <div class="card-body">
-          <form class="form-signin" *ngIf="addUserForm" [formGroup]="addUserForm" (ngSubmit)="onSubmit()" >
-
-            <div class="row justify-content-between text-left">
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="mail">Email <span class="text-danger">*</span></label>
-                <input type="text" formControlName="mail" class="form-control col-sm-10" id="mail" placeholder="Entrez l'email" />
-              </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="password">Password <span class="text-danger">*</span></label>
-                <input type="password" formControlName="password" class="form-control col-sm-10" id="password" placeholder="Entrez le mot de passe" />
-              </div>
-            </div>
-            <div class="row justify-content-between text-left">
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="userDateOfBirth">Date de naissance <span class="text-danger">*</span></label>
-                <input type="date" formControlName="userDateOfBirth" class="form-control col-sm-10" id="userDateOfBirth" placeholder="Entrez la date de naissance" />
-              </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="userEntryDate">Date entrée <span class="text-danger">*</span></label>
-                <input type="date" formControlName="userEntryDate" class="form-control col-sm-10" id="userEntryDate" placeholder="Entrez la date d'entrée" />
-              </div>
-            </div>
-            <div class="row justify-content-between text-left">
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="userLastname">Nom <span class="text-danger">*</span></label>
-                <input type="text" formControlName="userLastname" class="form-control col-sm-10" id="userLastname" placeholder="Entrez le nom" />
-              </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="userName">Prénom <span class="text-danger">*</span></label>
-                <input type="text" formControlName="userName" class="form-control col-sm-10" id="userName" placeholder="Entrez le prénom" />
-              </div>
-            </div>
-            <div class="row justify-content-between text-left">
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="userNss">Numéro sécurité sociale <span class="text-danger">*</span></label>
-                <input type="text" formControlName="userNss" class="form-control col-sm-10" id="userNss" placeholder="Entrez le numéro de sécurité sociale" />
-              </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="userPhone">Téléphone <span class="text-danger">*</span></label>
-                <input type="text" formControlName="userPhone" class="form-control col-sm-10" id="userPhone" placeholder="Entrez le numéro de téléphone" />
-              </div>
-            </div>
-            <div class="row justify-content-between text-left">
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="userUsername">Pseudo <span class="text-danger">*</span></label>
-                <input type="text" formControlName="userUsername" class="form-control col-sm-10" id="userUsername" placeholder="Entrez le pseudo" />
-              </div>
-            </div>
-
-            <div formControlName="addressGroup" class="row justify-content-between text-left">
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="addressNumber">Numéro de rue <span class="text-danger">*</span></label>
-                <input type="text" formControlName="addressNumber" class="form-control col-sm-10" id="addressNumber"
-                       placeholder="Entrez le numéro de rue"/>
-              </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="addressStreet">Rue <span class="text-danger">*</span></label>
-                <input type="text" formControlName="addressStreet" class="form-control col-sm-10" id="addressStreet"
-                       placeholder="Entrez le nom de la rue"/>
-              </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="addressCity">Ville <span class="text-danger">*</span></label>
-                <input type="text" formControlName="addressCity" class="form-control col-sm-10" id="addressCity"
-                       placeholder="Entrez la ville"/>
-              </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3" for="addressCountry">Pays <span class="text-danger">*</span></label>
-                <input type="text" formControlName="addressCountry" class="form-control col-sm-10" id="addressCountry"
-                       placeholder="Entrez le pays de résidence"/>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="form-group col-sm-6">
-                <button type="submit" class="btn-block btn-info">Sign Up</button>
-              </div>
-            </div>
-          </form>
+<div class="col-md-12">
+  <div class="card card-container">
+    <form class="form-signin" *ngIf="addUserForm" [formGroup]="addUserForm" (ngSubmit)="onSubmit()" >
+        <div class="form-group">
+          <label for="mail">Email <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="mail" class="form-control col-sm-10" id="mail" placeholder="Entrez l'email" />
         </div>
-      </div>
-    </div>
+        <div class="form-group">
+          <label for="password">Password <span class="text-danger">*</span> :</label>
+          <input type="password" formControlName="password" class="form-control col-sm-10" id="password" placeholder="Entrez le mot de passe" />
+        </div>
+        <div class="form-group">
+          <label for="userDateOfBirth">Date de naissance <span class="text-danger">*</span> :</label>
+          <input type="date" formControlName="userDateOfBirth" class="form-control col-sm-10" id="userDateOfBirth" placeholder="Entrez la date de naissance" />
+        </div>
+        <div class="form-group">
+          <label for="userEntryDate">Date entrée <span class="text-danger">*</span> :</label>
+          <input type="date" formControlName="userEntryDate" class="form-control col-sm-10" id="userEntryDate" placeholder="Entrez la date d'entrée" />
+        </div>
+        <div class="form-group">
+          <label for="userLastname">Nom <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="userLastname" class="form-control col-sm-10" id="userLastname" placeholder="Entrez le nom" />
+        </div>
+        <div class="form-group">
+          <label for="userName">Prénom <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="userName" class="form-control col-sm-10" id="userName" placeholder="Entrez le prénom" />
+        </div>
+        <div class="form-group">
+          <label for="userNss">Numéro sécurité sociale <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="userNss" class="form-control col-sm-10" id="userNss" placeholder="Entrez le numéro de sécurité sociale" />
+        </div>
+        <div class="form-group">
+          <label for="userPhone">Téléphone <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="userPhone" class="form-control col-sm-10" id="userPhone" placeholder="Entrez le numéro de téléphone" />
+        </div>
+        <div class="form-group">
+          <label for="userUsername">Pseudo <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="userUsername" class="form-control col-sm-10" id="userUsername" placeholder="Entrez le pseudo" />
+        </div>
+
+      <fieldset formGroupName="addressGroup" >
+        <div class="form-group">
+          <label for="addressNumber">Numéro de rue <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="addressNumber" class="form-control col-sm-10" id="addressNumber"
+                 placeholder="Entrez le numéro de rue"/>
+
+          <label for="addressStreet">Rue <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="addressStreet" class="form-control col-sm-10" id="addressStreet"
+                 placeholder="Entrez le nom de la rue"/>
+
+          <label for="addressCity">Ville <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="addressCity" class="form-control col-sm-10" id="addressCity"
+                 placeholder="Entrez la ville"/>
+
+          <label for="addressCountry">Pays <span class="text-danger">*</span> :</label>
+          <input type="text" formControlName="addressCountry" class="form-control col-sm-10" id="addressCountry"
+                 placeholder="Entrez le pays de résidence"/>
+        </div>
+      </fieldset>
+
+      <button type="submit">Sign Up</button>
+  </form>
   </div>
 </div>

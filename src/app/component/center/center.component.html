@@ -1,46 +1,45 @@
 <h1 class="text-center">Centre de Vacances</h1>
 <div class="col-md-12">
+  <div class="card card-container">
     <form class="form-signin" *ngIf="searchCenterNameForm" [formGroup]="searchCenterNameForm" (ngSubmit)="onSubmit()">
       <label for="centerName">Entrez le nom :</label>
       <input type="text" formControlName="centerName" class="form-control col-sm-10" id="centerName" placeholder="Entrez le nom" />
       <button type="submit">Rechercher :</button>
     </form>
-</div>
-<div class="col-md-12 ">
-  <div class="card card-container  ">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th scope="col">image</th>
-        <th scope="col">nom</th>
-        <th scope="col">email</th>
-        <th scope="col">telephone</th>
-        <th scope="col">commentaire</th>
-        <th scope="col">Adresse</th>
-        <th scope="col">Supprimer</th>
-        <th scope="col">Modifier</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let center of centers">
-        <td><img src="{{center.centerPicture}}" alt=""></td>
-        <td>{{center.centerName}}</td>
-        <td>{{center.centerMail}}</td>
-        <td>{{center.centerPhone}}</td>
-        <td>{{center.centerComment}}</td>
-        <td>{{center.address.addressNumber}} {{center.address.addressStreet}} -
-          {{center.address.addressCountry}} - {{center.address.addressCity}}</td>
-        <td>
-          <button (click)="onRemoveCenter(center.centerId)" class="btn btn-danger">Supprimer</button>
-        </td>
-        <td>
-          <button type="button" (click)="updateCenter(center.centerId)" class="btn btn-primary" data-toggle="modal" data-target="#updateCenter">
-            Modifier
-          </button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
   </div>
 </div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">image</th>
+    <th scope="col">nom</th>
+    <th scope="col">email</th>
+    <th scope="col">telephone</th>
+    <th scope="col">commentaire</th>
+    <th scope="col">Adresse</th>
+    <th scope="col">Supprimer</th>
+    <th scope="col">Modifier</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let center of centers">
+    <td><img src="{{center.centerPicture}}" alt=""></td>
+    <td>{{center.centerName}}</td>
+    <td>{{center.centerMail}}</td>
+    <td>{{center.centerPhone}}</td>
+    <td>{{center.centerComment}}</td>
+    <td>{{center.address.addressNumber}} {{center.address.addressStreet}} -
+      {{center.address.addressCountry}} - {{center.address.addressCity}}</td>
+    <td>
+      <button (click)="onRemoveCenter(center.centerId)" class="btn btn-primary">Supprimer</button>
+    </td>
+    <td>
+      <button type="button" (click)="updateCenter(center.centerId)" class="btn btn-primary" data-toggle="modal" data-target="#updateCenter">
+        Modifier
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
 <app-update-center *ngIf="charged" [centerId]="id" [displayCenter]="displayCenter"></app-update-center>
