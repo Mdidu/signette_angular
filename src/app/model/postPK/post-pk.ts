@@ -1,4 +1,6 @@
 export class PostPK {
-  tripId: number;
-  userId: number;
+
+  constructor(tripId: number, userId: number) {
+
+  }
 }
