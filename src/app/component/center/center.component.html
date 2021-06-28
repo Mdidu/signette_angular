@@ -3,7 +3,7 @@
     <form class="form-signin" *ngIf="searchCenterNameForm" [formGroup]="searchCenterNameForm" (ngSubmit)="onSubmit()">
       <label for="centerName">Entrez le nom :</label>
       <input type="text" formControlName="centerName" class="form-control col-sm-10" id="centerName" placeholder="Entrez le nom" />
-      <button type="submit">Rechercher :</button>
+      <button class="btn btn-primary" type="submit">Rechercher</button>
     </form>
 </div>
 <div class="col-md-12 ">
