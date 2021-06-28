@@ -26,7 +26,6 @@ export class ProfileComponent implements OnInit {
       });
 
       setTimeout(() => {
-        console.log(this.currentUser.userId)
         this.postService.findByPost(this.currentUser.userId).subscribe(
           trips => {
             this.trips = trips;
@@ -41,7 +40,6 @@ export class ProfileComponent implements OnInit {
 
     this.postService.findByDateAndUserId(id).subscribe(
       trips => {
-        console.log(trips);
         this.currentUser.trips = trips;
 
         this.trips = trips;
