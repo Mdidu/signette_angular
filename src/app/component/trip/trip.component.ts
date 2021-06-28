@@ -48,7 +48,7 @@ export class TripComponent implements OnInit {
     //this.router.navigate(['/trip/update/', id]);
   }
   detailTrip(id: number){
-    this.router.navigate(['/trip/', id]);
+    this.router.navigate(['/trip/detail', id]);
   }
 
 }

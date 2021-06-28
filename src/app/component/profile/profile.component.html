@@ -36,14 +36,20 @@
     <thead>
     <tr>
       <th scope="col">TripName</th>
+      <th scope="col">postName</th>
+      <th scope="col">ClientWording</th>
       <th scope="col">Center</th>
+      <th scope="col" class="btn btn-light" (click)="tripEndFilter(currentUser.userId)">Trip en cours</th>
       <th scope="col">Infos</th>
     </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let trip of currentUser.trips">
-        <td>Trip n°{{trip.tripId}} du centre {{trip.center.centerName}}</td>
-        <td>{{trip.center.centerName}}</td>
+      <tr *ngFor="let trip of trips">
+        <td> Trip n°{{trip.tripId}} du centre {{trip.centerName}}</td>
+        <td>{{trip.postName}} </td>
+        <td>{{trip.clientWording }} {{trip.clientWording}}</td>
+        <td>{{trip.centerName}} </td>
+        <td></td>
         <td>
           <a class="btn btn-primary" routerLink="../trip/detail/{{trip.tripId}}">Info du trip</a>
         </td>
