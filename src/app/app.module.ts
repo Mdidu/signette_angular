@@ -31,7 +31,14 @@ import {NavbarComponent} from "./component/navbar/navbar.component";
 import { FooterComponent } from './component/footer/footer.component';
 import { AddPostComponent } from './component/trip/post/add-post/add-post.component';
 import { UpdatePostComponent } from './component/trip/post/update-post/update-post.component';
+import {FullCalendarModule} from "@fullcalendar/angular";
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import {CalendarComponent} from "./component/calendar/calendar.component";
 
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+]);
 
 @NgModule({
   declarations: [
@@ -59,6 +66,8 @@ import { UpdatePostComponent } from './component/trip/post/update-post/update-po
     FooterComponent,
     AddPostComponent,
     UpdatePostComponent
+    CalendarComponent,
+
 
   ],
   imports: [
@@ -68,6 +77,7 @@ import { UpdatePostComponent } from './component/trip/post/update-post/update-po
     RouterModule,
     AppRoutingModule,
     ChartsModule,
+    FullCalendarModule // register FullCalendar with you app
 
   ],
   providers: [authInterceptorProviders],
