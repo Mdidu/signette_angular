@@ -19,6 +19,7 @@ import {UserComponent} from "./component/user/user.component";
 import {ChartjsComponent} from "./component/chart/bar/chartjs.component";
 import {CalendarComponent} from "./component/calendar/calendar.component";
 import {DetailUserComponent} from "./component/user/detail-user/detail-user.component";
+import {CalendarUserComponent} from "./component/user/calendar-user/calendar-user.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
