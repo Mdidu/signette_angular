@@ -33,6 +33,7 @@ import { AddPostComponent } from './component/trip/post/add-post/add-post.compon
 import {FullCalendarModule} from "@fullcalendar/angular";
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import {CalendarComponent} from "./component/calendar/calendar.component";
+import { DetailUserComponent } from './component/user/detail-user/detail-user.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -64,6 +65,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FooterComponent,
     AddPostComponent,
     CalendarComponent,
+    DetailUserComponent,
 
   ],
   imports: [
