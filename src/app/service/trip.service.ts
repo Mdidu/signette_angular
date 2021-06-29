@@ -27,7 +27,12 @@ export class TripService {
         return res;
       });
   }
-
+  public findAllEvent(): Observable<any> {
+    return this.http.get<any>(baseUrl + '/calendar')
+      .map((res: any) => {
+        return res;
+      });
+  }
   public add(data: any) {
     return this.http.post(baseUrl + '/add', data).subscribe(
       () => {
