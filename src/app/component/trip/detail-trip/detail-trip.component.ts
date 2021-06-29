@@ -56,4 +56,12 @@ export class DetailTripComponent implements OnInit {
     this.addPostClicked = true;
     this.tripId = tripId;
   }
+
+  updatePost(){
+
+  }
+
+  deletePost(tripId: number, userId:number){
+    this.postService.remove(tripId, userId);
+  }
 }

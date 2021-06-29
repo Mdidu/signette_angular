@@ -1,4 +1,4 @@
-<div class="pricing1 py-5 bg-light">
+<div class="pricing1 py-5">
   <div class="container">
     <!-- Row  -->
     <div class="row mt-5">
@@ -44,7 +44,7 @@
             </ul>
         </div>
       </div>
-    </div>
+    </div><!--
       <div class="col-lg-3 col-md-6">
         <div class="card text-center card-shadow on-hover border-0 mb-4">
           <div class="card-body font-14">
@@ -72,7 +72,62 @@
             </div>
           </div>
         </div>
-    </div>
+    </div>-->
   </div>
 </div>
 
+  <div class="col-md-12 d-flex justify-content-center">
+    <div class="card card-container w-50">
+      <div class="table-title m-2">
+        <div class="row">
+          <div class="col-sm-8">
+            <h5 class="mt-3 mb-1 font-weight-medium">Equipe d'Animation</h5>
+          </div>
+          <div class="col-sm-4">
+            <button type="button" data-keyboard="false" data-backdrop="static" (click)="addPost(tripId)" class="btn btn-info rounded-pill" data-toggle="modal" data-target="#addDialog">Ajouter animateur</button>
+          </div>
+        </div>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Poste</th>
+          <th scope="col">Supprimer</th>
+          <th scope="col">Modifier</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let info of information">
+          <td>{{info.userLastname}} - {{info.nameUser}}</td>
+          <td>{{info.postName}}</td>
+          <td>
+            <button  class="btn btn-danger" (click)="deletePost(info.tripId, info.userId)">Supprimer</button>
+          </td>
+          <td>
+            <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#updateClient">
+              Modifier
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="modal fade" id="addDialog" role="dialog" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPostModalLabel">Ajoutez un poste</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-add-post *ngIf="addPostClicked" [tripId]="tripId" ></app-add-post>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
