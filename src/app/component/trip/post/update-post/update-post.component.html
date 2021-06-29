@@ -1,0 +1,23 @@
+
+<form class="form-signing" [formGroup]="updatePostForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group" formGroupName="Id">
+    <input type="hidden" formControlName="tripdId">
+    <input type="hidden" formControlName="userId">
+
+  </div>
+
+
+
+  <label for="postId">Poste :</label>
+  <select formControlName="postId" class="form-control col-sm-10" id="postId"  >
+    <option *ngFor="let posttype of posttypes" value="{{posttype.postId}}">{{posttype.postName}}</option>
+  </select>
+
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+    <button type="submit" class="btn btn-primary" >Sauvegarder </button>
+  </div>
+</form>
+

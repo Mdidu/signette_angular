@@ -30,6 +30,7 @@ import {ChartsModule} from "ng2-charts";
 import {NavbarComponent} from "./component/navbar/navbar.component";
 import { FooterComponent } from './component/footer/footer.component';
 import { AddPostComponent } from './component/trip/post/add-post/add-post.component';
+import { UpdatePostComponent } from './component/trip/post/update-post/update-post.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { AddPostComponent } from './component/trip/post/add-post/add-post.compon
     ChartjsComponent,
     NavbarComponent,
     FooterComponent,
-    AddPostComponent
+    AddPostComponent,
+    UpdatePostComponent
 
   ],
   imports: [
