@@ -8,6 +8,6 @@
     <li class="list-group-item">Nss : {{user.userNss}} | Tél : {{user.userPhone}}</li>
     <li class="list-group-item">Adresse : {{user.address.addressNumber}} {{user.address.addressStreet}} {{user.address.addressCity}}, {{user.address.addressCountry}}</li>
   </ul>
-  <app-calendar-user [userId]="userId"></app-calendar-user>
+  <app-calendar-user *ngIf="user.role.roleType=='ROLE_USER'" [userId]="userId" ></app-calendar-user>
 </div>
 

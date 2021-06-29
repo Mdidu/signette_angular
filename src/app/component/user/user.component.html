@@ -20,7 +20,6 @@
         <th scope="col">Nss</th>
         <th scope="col">Phone</th>
         <th scope="col">Username</th>
-        <th scope="col">Address</th>
         <th scope="col">Role</th>
         <th scope="col">Actions</th>
       </tr>
@@ -36,7 +35,6 @@
         <td>{{user.userNss}}</td>
         <td>{{user.userPhone}}</td>
         <td>{{user.userUsername}}</td>
-        <td>{{user.address.addressNumber}} {{user.address.addressStreet}} {{user.address.addressCity}}, {{user.address.addressCountry}}</td>
         <td>{{user.role.roleType}}</td>
         <td>
           <button (click)="onRemoveUser(user.userId)" class="btn btn-danger">Supprimer</button>

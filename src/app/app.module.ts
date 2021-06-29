@@ -33,7 +33,7 @@ import { AddPostComponent } from './component/trip/post/add-post/add-post.compon
 import { UpdatePostComponent } from './component/trip/post/update-post/update-post.component';
 import {FullCalendarModule} from "@fullcalendar/angular";
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-import {CalendarComponent} from "./component/calendar/calendar.component";
+import {CalendarComponent} from './component/calendar/calendar.component';
 import { DetailUserComponent } from './component/user/detail-user/detail-user.component';
 import { CalendarUserComponent } from './component/user/calendar-user/calendar-user.component';
 
@@ -67,7 +67,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NavbarComponent,
     FooterComponent,
     AddPostComponent,
-    UpdatePostComponent
+    UpdatePostComponent,
     CalendarComponent,
     DetailUserComponent,
     CalendarUserComponent,
