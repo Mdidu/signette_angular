@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {User} from "../../../model/user/user";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../service/user.service";
@@ -12,7 +12,7 @@ import {Employee} from "../../../model/employee/employee";
 export class DetailUserComponent implements OnInit {
 
   user: Employee;
-  userId: number;
+  @Output() userId: number;
 
   constructor(private userService: UserService, private route: ActivatedRoute) { }
 

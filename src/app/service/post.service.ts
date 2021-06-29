@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import "rxjs-compat/add/operator/map";
 import {Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 const baseUrl = 'http://localhost:8888/post';
 
@@ -42,6 +43,7 @@ export class PostService {
       })
   }
 
+
   public findByTrip(id: number | undefined) {
     return this.http.get<any>(baseUrl + '/readBytrip/' + id)
       .map((res: any) => {
@@ -67,6 +69,13 @@ export class PostService {
 
   public findByPost(id: number) {
     return this.http.get<any>(baseUrl + "/readByPost/" + id)
+      .map((res: any) => {
+        return res;
+      });
+  }
+
+  public findUserEvent(id: number): Observable<any> {
+    return this.http.get<any>(baseUrl + '/findTripByUser/'+id)
       .map((res: any) => {
         return res;
       });

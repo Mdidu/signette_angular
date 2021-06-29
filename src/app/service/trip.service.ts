@@ -33,6 +33,8 @@ export class TripService {
         return res;
       });
   }
+
+
   public add(data: any) {
     return this.http.post(baseUrl + '/add', data).subscribe(
       () => {
