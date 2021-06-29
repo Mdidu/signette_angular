@@ -18,6 +18,7 @@ import {DetailTripComponent} from "./component/trip/detail-trip/detail-trip.comp
 import {UserComponent} from "./component/user/user.component";
 import {UpdateUserComponent} from "./component/user/update-user/update-user.component";
 import {ChartjsComponent} from "./component/chart/bar/chartjs.component";
+import {CalendarComponent} from "./component/calendar/calendar.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'trip/add', component: AddTripComponent},
   {path: 'trip/update/:id', component: UpdateTripComponent},
   {path: 'trip/detail/:id', component: DetailTripComponent},
+  {path: 'trip/calendar', component: CalendarComponent},
   {path: 'user/list/:id', component: UserComponent},
   {path: 'emp/list/:id', component: UserComponent},
   {path: 'admin/list/:id', component: UserComponent},

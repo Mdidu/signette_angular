@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { CalendarOptions } from '@fullcalendar/angular';
 
 @Component({
   selector: 'app-calendar',
@@ -8,6 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class CalendarComponent implements OnInit {
 
   constructor() { }
+
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth',
+    defaultAllDay:true,
+    forceEventDuration:true,
+    initialEvents: {
+      url: 'http://localhost:8888/trip/calendar'
+    }
+
+  };
 
   ngOnInit(): void {
   }

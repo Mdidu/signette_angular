@@ -30,7 +30,13 @@ import {ChartsModule} from "ng2-charts";
 import {NavbarComponent} from "./component/navbar/navbar.component";
 import { FooterComponent } from './component/footer/footer.component';
 import { AddPostComponent } from './component/trip/post/add-post/add-post.component';
+import {FullCalendarModule} from "@fullcalendar/angular";
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import {CalendarComponent} from "./component/calendar/calendar.component";
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+]);
 
 @NgModule({
   declarations: [
@@ -56,7 +62,8 @@ import { AddPostComponent } from './component/trip/post/add-post/add-post.compon
     ChartjsComponent,
     NavbarComponent,
     FooterComponent,
-    AddPostComponent
+    AddPostComponent,
+    CalendarComponent,
 
   ],
   imports: [
@@ -66,6 +73,7 @@ import { AddPostComponent } from './component/trip/post/add-post/add-post.compon
     RouterModule,
     AppRoutingModule,
     ChartsModule,
+    FullCalendarModule // register FullCalendar with you app
 
   ],
   providers: [authInterceptorProviders],
