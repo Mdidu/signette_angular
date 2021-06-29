@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
 import {TripService} from "../../service/trip.service";
-import {colors} from "@angular/cli/utilities/color";
 
 @Component({
   selector: 'app-calendar',
