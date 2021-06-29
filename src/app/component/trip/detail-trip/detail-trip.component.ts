@@ -18,9 +18,12 @@ export class DetailTripComponent implements OnInit {
 
   trip: Trip;
   @Output() tripId: number;
+  @Output() userId: number;
+  @Output() postId: number;
   client: Client;
   center: Center;
   addPostClicked: boolean = false;
+  updatePostClicked: boolean = false;
   information: any[]; // reçois ex :[{"tripId":12,"userId":2,"postId":4,"postName":"Coordinateur Détaché","nameUser":"Eric","userLastname":"Tomsick"}]
 
 
@@ -55,5 +58,16 @@ export class DetailTripComponent implements OnInit {
   addPost(tripId: number) {
     this.addPostClicked = true;
     this.tripId = tripId;
+  }
+
+  updatePost(tripId:number,userId:number,postId:number){
+    this.updatePostClicked = true;
+    this.tripId=tripId;
+    this.userId=userId;
+    this.postId=postId;
+  }
+
+  deletePost(tripId: number, userId:number){
+    this.postService.remove(tripId, userId);
   }
 }
