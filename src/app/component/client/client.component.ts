@@ -14,32 +14,50 @@ export class ClientComponent implements OnInit {
   charged: boolean = false;
   id: number;
   clients: any;
-  clientName:FormGroup;
+  currentIndex = -1;
+  title = '';
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3, 6, 9];
 
-  constructor(private formBuilder: FormBuilder, public clientService: ClientService, private router: Router) {
+  constructor( public clientService: ClientService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.displayClient();
-    this.form();
   }
 
-  form(){
-    this.clientName = this.formBuilder.group({
-      name:["",Validators.required]
-    })
+  getRequestParams(searchTitle: string, page: number, pageSize: number): any {
+    let params: any = {};
+    if (searchTitle) {params[`title`] = searchTitle;}
+    if (page) {params[`page`] = page - 1;}
+    if (pageSize) {params[`size`] = pageSize;}
+    return params;
   }
 
   displayClient = () => {
-    this.clientService.findAll().subscribe(
-      (clients) => {
-        console.log(clients.toString());
+    const params = this.getRequestParams(this.title, this.page, this.pageSize);
+    this.clientService.getAll(params).subscribe(
+      (response) => {
+        const { clients, totalItems } = response;
         this.clients = clients;
+        this.count = totalItems;
+        console.log(response);
       },
       (error) => {
         console.log('error=' + error.message);
       }
     );
+  }
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.displayClient();
+  }
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.displayClient();
   }
 
   onRemoveClient(id: number) {
@@ -56,17 +74,11 @@ export class ClientComponent implements OnInit {
     this.charged = true;
   }
 
-  searchClient(){
-    const data = this.clientName.value;
-    this.clients = this.clientService.findByName(data.name).subscribe(
-      (client)=>{
-        this.clients = client;
-      },
-      (error)=>{
-        console.log('error = '+error.message);
-      }
-    );
+  searchTitle(): void {
+    this.page = 1;
+    this.displayClient();
   }
+
 
   searchSejours(id: number){
     this.router.navigate(['/client/trip', id]);

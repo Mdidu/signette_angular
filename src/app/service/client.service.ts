@@ -30,6 +30,12 @@ export class ClientService {
 
       });
   }
+  public getAll(params: any): Observable<any> {
+    return this.http.get<any>(baseUrl + '/read', { params })
+      .map((res: any) => {
+        return res;
+      });
+  }
 
   public findByName(name: string): Observable<Client[]>{
     return this.http.get<any>(baseUrl + '/read/name/' + name)
