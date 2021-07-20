@@ -36,6 +36,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import {CalendarComponent} from './component/calendar/calendar.component';
 import { DetailUserComponent } from './component/user/detail-user/detail-user.component';
 import { CalendarUserComponent } from './component/user/calendar-user/calendar-user.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -73,6 +74,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CalendarUserComponent,
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     RouterModule,
     AppRoutingModule,
     ChartsModule,
+    NgxPaginationModule,
     FullCalendarModule // register FullCalendar with you app
 
   ],
