@@ -1,0 +1,33 @@
+import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+
+const baseUrl = 'http://localhost:8888/';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DocumentService {
+
+  constructor(private http: HttpClient) { }
+
+  public generatePDF(userId: number, tripId: number) {
+    return this.http.get<any>(baseUrl + 'api/user/' + userId + '/trip/' + tripId)
+      .map(() => {
+        console.log("generate pdf");
+      })
+  }
+
+  public findDocumentByUser(id: number) {
+    return this.http.get<any>(baseUrl + '/document/user/' + id)
+      .map((res:any)=>{
+        return res;
+      })
+  }
+
+  public findDocumentByTrip(id: number) {
+    return this.http.get<any>(baseUrl + '/document/trip/' + id)
+      .map((res:any)=>{
+        return res;
+      })
+  }
+}
