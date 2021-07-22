@@ -1,0 +1,26 @@
+<div class="col-md-12 ">
+  <div class="card card-container   w-75">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">DocumentName</th>
+        <th scope="col">Download</th>
+        <th scope="col">Signed</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let document of documents">
+        <td>{{document.documentName}}</td>
+        <td>
+          <button (click)="onDownloadDocument(document.documentId)" class="btn btn-primary">Télécharger</button>
+        </td>
+        <td>
+          <button type="button" (click)="onSignedDocument(document.documentId)" class="btn btn-primary">
+            Signer
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
