@@ -37,6 +37,8 @@ import {CalendarComponent} from './component/calendar/calendar.component';
 import { DetailUserComponent } from './component/user/detail-user/detail-user.component';
 import { CalendarUserComponent } from './component/user/calendar-user/calendar-user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ListDocumentByTripComponent } from './component/document/list-document-by-trip/list-document-by-trip.component';
+import { ListDocumentByUserComponent } from './component/document/list-document-by-user/list-document-by-user.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -72,6 +74,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CalendarComponent,
     DetailUserComponent,
     CalendarUserComponent,
+    ListDocumentByTripComponent,
+    ListDocumentByUserComponent,
 
 
 

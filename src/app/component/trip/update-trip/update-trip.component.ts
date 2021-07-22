@@ -33,7 +33,7 @@ export class UpdateTripComponent implements OnInit {
     this.recupDataCenters();
     setTimeout(() => {
       this.form();
-      console.log(this.updateTripForm)
+      // console.log(this.updateTripForm)
     }, 1000);
 
   }
@@ -50,12 +50,12 @@ export class UpdateTripComponent implements OnInit {
     this.updateTripForm = this.formBuilder.group({
       tripStartDate: [this.trip.tripStartDate, Validators.required],
       tripEndDate: [this.trip.tripEndDate, Validators.required],
-      client: this.formBuilder.group({
+      // client: this.formBuilder.group({
         clientId:  [this.trip.client.clientId, Validators.required],
-      }),
-      center: this.formBuilder.group({
+      // }),
+      // center: this.formBuilder.group({
         centerId:  [this.trip.center.centerId, Validators.required],
-      })
+      // })
     });
   }
 

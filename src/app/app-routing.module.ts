@@ -20,6 +20,8 @@ import {ChartjsComponent} from "./component/chart/bar/chartjs.component";
 import {CalendarComponent} from "./component/calendar/calendar.component";
 import {DetailUserComponent} from "./component/user/detail-user/detail-user.component";
 import {CalendarUserComponent} from "./component/user/calendar-user/calendar-user.component";
+import {ListDocumentByTripComponent} from "./component/document/list-document-by-trip/list-document-by-trip.component";
+import {ListDocumentByUserComponent} from "./component/document/list-document-by-user/list-document-by-user.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -43,6 +45,8 @@ const routes: Routes = [
   {path: 'emp/list/:id', component: UserComponent},
   {path: 'admin/list/:id', component: UserComponent},
   {path: 'chart/:id', component: ChartjsComponent},
+  {path: 'document/trip/:id', component: ListDocumentByTripComponent},
+  {path: 'document/user/:id', component: ListDocumentByUserComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

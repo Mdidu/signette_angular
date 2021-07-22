@@ -18,14 +18,14 @@ export class DocumentService {
   }
 
   public findDocumentByUser(id: number) {
-    return this.http.get<any>(baseUrl + '/document/user/' + id)
+    return this.http.get<any>(baseUrl + 'document/read/user/' + id)
       .map((res:any)=>{
         return res;
       })
   }
 
   public findDocumentByTrip(id: number) {
-    return this.http.get<any>(baseUrl + '/document/trip/' + id)
+    return this.http.get<any>(baseUrl + 'document/read/trip/' + id)
       .map((res:any)=>{
         return res;
       })
