@@ -63,7 +63,7 @@ export class UserComponent implements OnInit {
   }
 
   detailUser(id: number) {
-    this.router.navigate(['/user/', id]);
+    this.router.navigate(['/user/detail/', id]);
   }
 
   onSubmit() {

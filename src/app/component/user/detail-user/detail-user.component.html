@@ -1,0 +1,13 @@
+<div class="card " style="width: 50rem;">
+  <div class="card-header">
+    {{user.userLastname}} {{user.userUsername}}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Email : {{user.userMail }} | Mdp : {{user.userPassword}}</li>
+    <li class="list-group-item">Né(e) le : {{user.userDateOfBirth | date:'short' }} | Ancienneté : {{user.userEntryDate | date:'short'}}</li>
+    <li class="list-group-item">Nss : {{user.userNss}} | Tél : {{user.userPhone}}</li>
+    <li class="list-group-item">Adresse : {{user.address.addressNumber}} {{user.address.addressStreet}} {{user.address.addressCity}}, {{user.address.addressCountry}}</li>
+  </ul>
+  <app-calendar-user *ngIf="user.role.roleType=='ROLE_USER'" [userId]="userId" ></app-calendar-user>
+</div>
+

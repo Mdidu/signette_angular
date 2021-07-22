@@ -21,8 +21,14 @@ export class CenterService {
       });
   }
 
-  public findAll(): Observable<Center[]> {
-    return this.http.get<any>(baseUrl + '/read')
+  public findAll(): Observable<any> {
+    return this.http.get<any>(baseUrl + '/read',)
+      .map((res: any) => {
+        return res;
+      });
+  }
+  public getAll(params: any): Observable<any> {
+    return this.http.get<any>(baseUrl + '/read', { params })
       .map((res: any) => {
         return res;
       });
@@ -48,12 +54,5 @@ export class CenterService {
     return this.http.delete(baseUrl + '/delete/' + id).subscribe(
       () => {}
     );
-  }
-
-  public findByCenterName(centerName: string | null) {
-    return this.http.get<any>(baseUrl + '/read/search/' + centerName)
-      .map((res: any) => {
-        return res;
-      });
   }
 }

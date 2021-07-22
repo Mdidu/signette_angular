@@ -15,7 +15,13 @@ export class CenterComponent implements OnInit {
   centers: any;
   searchCenterNameForm: FormGroup;
   charged: boolean = false;
+  currentIndex = -1;
   id: number;
+  title = '';
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3, 6, 9];
 
   constructor(private formBuilder: FormBuilder, public centerService: CenterService,  private router: Router) {
   }
@@ -25,6 +31,24 @@ export class CenterComponent implements OnInit {
     this.form();
   }
 
+  getRequestParams(searchTitle: string, page: number, pageSize: number): any {
+    let params: any = {};
+
+    if (searchTitle) {
+      params[`title`] = searchTitle;
+    }
+
+    if (page) {
+      params[`page`] = page - 1;
+    }
+
+    if (pageSize) {
+      params[`size`] = pageSize;
+    }
+
+    return params;
+  }
+
   form() {
     this.searchCenterNameForm = this.formBuilder.group( {
       centerName: ['', Validators.required]
@@ -32,14 +56,27 @@ export class CenterComponent implements OnInit {
   }
 
   displayCenter = () => {
-      this.centerService.findAll().subscribe(
-        (centers) => {
+      const params = this.getRequestParams(this.title, this.page, this.pageSize);
+      this.centerService.getAll(params).subscribe(
+        (response) => {
+          const { centers, totalItems } = response;
           this.centers = centers;
+          this.count = totalItems;
+          console.log(response);
         },
         (error) => {
           console.log('error=' + error.message);
         }
       );
+  }
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.displayCenter();
+  }
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.displayCenter();
   }
 
   onRemoveCenter(id: number) {
@@ -57,15 +94,8 @@ export class CenterComponent implements OnInit {
   }
 
   onSubmit() {
-    const data = this.searchCenterNameForm.value;
-
-    this.centerService.findByCenterName(data.centerName).subscribe(
-      (centers) => {
-        this.centers = centers;
-      },
-      (error) => {
-        console.log('errors=' + error.message);
-      }
-    );
+    this.page = 1;
+    this.title = this.searchCenterNameForm.value.centerName;
+    this.displayCenter();
   }
 }
