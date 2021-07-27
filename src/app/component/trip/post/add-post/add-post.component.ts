@@ -21,7 +21,7 @@ export class AddPostComponent implements OnInit {
 
   userId: any;
   users: any[];
-  posttypes: PostType[];
+  posttypes: any[];
   posttype: any;
 
   constructor(private formBuilder: FormBuilder,
@@ -30,6 +30,7 @@ export class AddPostComponent implements OnInit {
 
   ngOnInit(): void {
     this.recupData();
+    this.recupPost();
     this.form();
   }
   form() {
@@ -50,6 +51,9 @@ export class AddPostComponent implements OnInit {
         console.log('error = ' + error.message);
       }
     );
+
+  }
+  recupPost() {
     this.postService.findAllPostType().subscribe(
       (posttypes) => {
         this.posttypes = posttypes;
