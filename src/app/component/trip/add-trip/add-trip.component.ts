@@ -47,7 +47,7 @@ export class AddTripComponent implements OnInit {
     );
     this.centerService.findAll().subscribe(
       (centers) => {
-        this.centers = centers;
+        this.centers = centers.centers;
       },
       (error) => {
         console.log('error = ' + error.message);
