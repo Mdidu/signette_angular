@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {DocumentService} from "../../../service/document.service";
 
@@ -9,7 +9,7 @@ import {DocumentService} from "../../../service/document.service";
 })
 export class ListDocumentByTripComponent implements OnInit {
 
-  tripId: any;
+  @Input() tripId: any;
   documents: any;
 
   constructor(private route:ActivatedRoute, private documentService: DocumentService, private router: Router) { }

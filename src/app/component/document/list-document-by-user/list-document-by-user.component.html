@@ -12,12 +12,10 @@
       <tr *ngFor="let document of documents">
         <td>{{document.documentName}}</td>
         <td>
-          <button (click)="onDownloadDocument(document.documentId)" class="btn btn-primary">Télécharger</button>
+          <button (click)="onDownloadDocument(document.documentName)" class="btn btn-primary">Télécharger</button>
         </td>
         <td>
-          <button type="button" (click)="onSignedDocument(document.documentId)" class="btn btn-primary">
-            Signer
-          </button>
+          <button type="button" (click)="onSignedDocument(document.documentId)" class="btn btn-primary">Signer</button>
         </td>
       </tr>
       </tbody>

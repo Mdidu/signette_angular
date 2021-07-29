@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {DocumentService} from "../../../service/document.service";
 
@@ -9,7 +9,7 @@ import {DocumentService} from "../../../service/document.service";
 })
 export class ListDocumentByUserComponent implements OnInit {
 
-  userId: any;
+  @Input() userId: any;
   documents: any;
 
   constructor(private route:ActivatedRoute, private documentService: DocumentService, private router: Router) { }
@@ -28,7 +28,12 @@ export class ListDocumentByUserComponent implements OnInit {
     )
   }
 
-  onDownloadDocument(id: number) {}
-  onSignedDocument(id: number) {}
+  onDownloadDocument(documentName: string) {
+    this.documentService.downloadDocument(documentName);
+
+  }
+  onSignedDocument(id: number) {
+    this.documentService.signDocument(id);
+  }
 
 }

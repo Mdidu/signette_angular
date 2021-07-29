@@ -30,4 +30,17 @@ export class DocumentService {
         return res;
       })
   }
+
+  public downloadDocument(documentName: string) {
+    return this.http.get<any>(baseUrl + 'download/pdf/' + documentName)
+      .map((res:any)=>{
+        return res;
+      })
+  }
+  public signDocument(id: number) {
+    return this.http.get<any>(baseUrl + 'document/sign/' + id)
+      .map((res:any)=>{
+        return res;
+      })
+  }
 }
